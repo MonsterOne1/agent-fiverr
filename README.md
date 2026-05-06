@@ -16,6 +16,8 @@ marketplace.
   pilot agents: SEO audit, data cleaning, and presentation deck.
 - `agent_fiverr/phase2_samples.py` - generated 200-sample Phase 2 order set:
   10 sample orders for each of the 20 MVP services.
+- `data/eval-fixtures.generated.json` - 100 eval fixtures: five runnable
+  fixture specs for each MVP service workspace.
 - `agent_fiverr/qa.py` - automatic QA evaluator and human review queue.
 - `agent_fiverr/marketplace.py` - local marketplace orchestrator for discovery,
   quotes, quote acceptance, and mock escrow holds.
@@ -49,6 +51,7 @@ python3 scripts/run_pilot_simulation.py
 python3 scripts/run_phase2_simulation.py
 python3 scripts/run_alpha_metrics.py
 python3 scripts/generate_long_tail_catalog.py
+python3 scripts/generate_eval_fixtures.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 -m unittest discover -s tests -p 'test_credentials.py'
 python3 -m agent_fiverr.cli discover --category Data

@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from agent_fiverr.providers import adapter_for
+from agent_fiverr.eval_fixtures import validate_eval_fixtures
 
 REQUIRED_SERVICE_FILES = {
     "SERVICE.md",
@@ -171,6 +172,11 @@ def validate_pilot_samples(services: list[dict]) -> None:
         assert_true(count == 10, f"expected 10 samples for {slug}, found {count}")
 
 
+def validate_eval_fixture_artifact() -> None:
+    fixtures = load_json(ROOT / "data" / "eval-fixtures.generated.json")
+    validate_eval_fixtures(fixtures, ROOT)
+
+
 def main() -> int:
     categories = {item["category"] for item in load_json(ROOT / "data" / "top-level-categories.json")}
     archetypes = {item["id"] for item in load_json(ROOT / "data" / "service-archetypes.json")}
@@ -191,6 +197,7 @@ def main() -> int:
         validate_template()
         validate_provider_adapters(provider_records)
         validate_pilot_samples(services)
+        validate_eval_fixture_artifact()
     except AssertionError as exc:
         errors.append(str(exc))
 
@@ -205,6 +212,7 @@ def main() -> int:
     print(f"Providers: {len(providers)}")
     print(f"Provider adapters: {len(providers)}")
     print("Pilot sample orders: 30")
+    print("Eval fixtures: 100")
     print(f"Required files per service: {len(REQUIRED_SERVICE_FILES)}")
     return 0
 

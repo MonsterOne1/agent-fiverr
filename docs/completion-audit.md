@@ -25,6 +25,7 @@ Implement the Fiverr-agentification plan until acceptance standards are met.
 | Deliverable versioning | `agent_fiverr/order.py`; `tests/test_order_runtime.py` | Implemented locally |
 | Revision policy and scope detection | `agent_fiverr/order.py`; `services/<slug>/REVISION.md` | Implemented locally |
 | 3 pilot agents / 30 simulated orders | `data/pilot-sample-orders.json`; `scripts/run_pilot_simulation.py` | Implemented as simulation |
+| Each MVP workspace can run 5 golden/eval samples | `data/eval-fixtures.generated.json`; `agent_fiverr/eval_fixtures.py`; `scripts/generate_eval_fixtures.py` | Implemented as 100 runnable fixture specs |
 | 20 MVP agents / 10+ samples each | `agent_fiverr/phase2_samples.py`; `scripts/run_phase2_simulation.py` | Implemented as 200-order simulation |
 | Automatic QA + human review loop | `agent_fiverr/qa.py`; `docs/qa-runtime.md` | Baseline implemented with assignment, SLA, decision records, and JSON persistence |
 | Buyer brief / quote / order status | `agent_fiverr/marketplace.py`; `agent_fiverr/cli.py`; `web/` | Local alpha implemented |
@@ -41,6 +42,7 @@ python3 scripts/run_pilot_simulation.py
 python3 scripts/run_phase2_simulation.py
 python3 scripts/run_alpha_metrics.py
 python3 scripts/generate_long_tail_catalog.py
+python3 scripts/generate_eval_fixtures.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 git diff --check
 ```
@@ -54,6 +56,7 @@ MVP services: 20
 Providers: 14
 Provider adapters: 14
 Pilot sample orders: 30
+Eval fixtures: 100
 Required files per service: 11
 
 Pilot simulation passed.
@@ -82,7 +85,13 @@ Service specs: 800
 Saleable candidates: 160
 Gate: PASS
 
-Ran 53 tests
+Eval fixtures generated.
+Total fixtures: 100
+Services: 20
+Fixtures per service: 5
+Gate: PASS
+
+Ran 55 tests
 OK
 
 git diff --check exits 0 with no output.
@@ -107,6 +116,8 @@ Missing or weakly verified requirements:
 - Refund and cancellation rates are simulated, not observed.
 - Long-tail services are generated drafts, not curated/validated marketplace
   listings.
+- Eval fixtures exist for every MVP service, but expected deliverables are
+  placeholder fixture content rather than human-approved golden outputs.
 - Service-specific quality scoring is still shallow compared with real expert
   rubrics.
 
