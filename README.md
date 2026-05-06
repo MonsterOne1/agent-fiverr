@@ -21,6 +21,10 @@ marketplace.
   quotes, quote acceptance, and mock escrow holds.
 - `agent_fiverr/alpha_metrics.py` - executable Marketplace Alpha metric gates
   for 100-order readiness simulation.
+- `agent_fiverr/long_tail.py` - Phase 4 long-tail service generator and
+  validator.
+- `data/long-tail-services.generated.json` - generated 800-service long-tail
+  catalog draft with 160 saleable candidates.
 - `web/` - static buyer-facing alpha UI for catalog, quote, workroom, provider
   status, and mock escrow checkout.
 - `services/<service>/` - generated workspace spec for each MVP service.
@@ -42,6 +46,7 @@ python3 scripts/validate_catalog.py
 python3 scripts/run_pilot_simulation.py
 python3 scripts/run_phase2_simulation.py
 python3 scripts/run_alpha_metrics.py
+python3 scripts/generate_long_tail_catalog.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 -m agent_fiverr.cli discover --category Data
 python3 -m agent_fiverr.cli quote data-cleaning-formatting '{"dataset_file":"contacts.csv","target_schema":"email,name","dedupe_rules":"email","missing_value_rules":"blank","output_format":"csv"}' --package standard

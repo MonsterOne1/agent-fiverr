@@ -33,6 +33,7 @@ catalog validation.
 | Marketplace alpha kernel exists | `agent_fiverr/marketplace.py` and `docs/marketplace-runtime.md` | Unit tests cover service discovery, quote readiness, package price/SLA, order creation, mock escrow hold, and CLI buyer flow |
 | Buyer-facing marketplace/workroom alpha UI exists | `web/` and `docs/web-alpha.md` | Static tests cover required regions and 20 MVP services; headless Chrome screenshots verify desktop and mobile rendering |
 | Marketplace alpha metrics thresholds are executable | `agent_fiverr/alpha_metrics.py` and `docs/alpha-metrics.md` | `scripts/run_alpha_metrics.py` simulates 100 orders and checks cancellation, refund, response, and delivery-speed gates |
+| Phase 4 long-tail expansion gate is executable | `agent_fiverr/long_tail.py`, `data/long-tail-services.generated.json`, and `docs/long-tail-catalog.md` | Generator produces 800 service specs, 160 saleable candidates, and minimum eval pack references for every service |
 
 ## Current Validator
 
@@ -43,6 +44,7 @@ python3 scripts/validate_catalog.py
 python3 scripts/run_pilot_simulation.py
 python3 scripts/run_phase2_simulation.py
 python3 scripts/run_alpha_metrics.py
+python3 scripts/generate_long_tail_catalog.py
 ```
 
 Expected output:
@@ -75,6 +77,11 @@ Refund rate: 3.0%
 Average first response: 34.6s
 Delivery speed improvement: 93.5%
 Gate: PASS
+
+Long-tail catalog generated.
+Service specs: 800
+Saleable candidates: 160
+Gate: PASS
 ```
 
 ## Remaining Beyond Current Local Alpha
@@ -94,3 +101,5 @@ Gate: PASS
   service-specific quality scoring beyond required-field checks.
 - Phase 3 metrics have executable simulated gates, but still require real buyer
   orders, real payments/escrow, cancellation/refund tracking, and human QA pool.
+- Phase 4 long-tail specs are generated drafts. They need demand ranking,
+  curation, provider adapter selection, and real eval fixtures before listing.
