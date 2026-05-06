@@ -18,6 +18,8 @@ marketplace.
   10 sample orders for each of the 20 MVP services.
 - `data/eval-fixtures.generated.json` - 100 eval fixtures: five runnable
   fixture specs for each MVP service workspace.
+- `agent_fiverr/deliverables.py` - local document/table/widget deliverable
+  packager with per-order manifests.
 - `agent_fiverr/qa.py` - automatic QA evaluator and human review queue.
 - `agent_fiverr/reviewers.py` - reviewer-pool assignment policy for human QA
   escalations.

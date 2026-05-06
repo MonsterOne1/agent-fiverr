@@ -13,6 +13,7 @@ This repo now includes a minimal local runtime for the plan's Phase 1 gates.
   blocked actions, deliverables, and revisions.
 - Block configured provider side effects until explicit authorization is granted.
 - Version deliverables and block delivery below QA threshold.
+- Package document, table, and widget deliverables with per-order manifests.
 - Classify revision requests as in-scope or scope-change candidates.
 - Run the 30 seed pilot sample orders through the local lifecycle runtime.
 - Run 200 generated Phase 2 sample orders: 10 for each MVP service.
@@ -41,6 +42,5 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 
 - Actual agent execution against provider APIs.
 - Hosted workroom UI.
-- Payment/escrow/quote acceptance.
-- Real structured document/table/widget delivery surfaces.
-- Human QA pool and expert marketplace.
+- Hosted file storage and signed download URLs for deliverables.
+- Real staffed expert marketplace.
