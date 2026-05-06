@@ -14,6 +14,7 @@ This repo now includes a minimal local runtime for the plan's Phase 1 gates.
 - Block configured provider side effects until explicit authorization is granted.
 - Version deliverables and block delivery below QA threshold.
 - Classify revision requests as in-scope or scope-change candidates.
+- Run the 30 seed pilot sample orders through the local lifecycle runtime.
 
 ## Commands
 
@@ -27,6 +28,7 @@ python3 -m agent_fiverr.cli create-order seo-geo-audit '{"website_url":"https://
 
 ```bash
 python3 scripts/validate_catalog.py
+python3 scripts/run_pilot_simulation.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 

@@ -26,6 +26,7 @@ catalog validation.
 | Define lifecycle/state-machine baseline | `WORKSPACE_MANIFEST.json` in template and generated service dirs | Validator checks lifecycle sequence |
 | External side effects require explicit authorization | `POLICY.md` and `WORKSPACE_MANIFEST.json` | Validator checks policy text for services using side-effect providers |
 | Seed first 3 pilot agents with 30 simulated orders | `data/pilot-sample-orders.json` | Validator checks exactly 30 samples, 10 each for SEO audit, data cleaning, and presentation deck |
+| Run first 3 pilot agents through local order lifecycle | `scripts/run_pilot_simulation.py` | Simulation creates 30 temporary workroom orders, advances them to delivery, and adds QA-passing deliverables |
 
 ## Current Validator
 
@@ -33,6 +34,7 @@ Run:
 
 ```bash
 python3 scripts/validate_catalog.py
+python3 scripts/run_pilot_simulation.py
 ```
 
 Expected output:
@@ -44,6 +46,11 @@ MVP services: 20
 Providers: 14
 Pilot sample orders: 30
 Required files per service: 11
+
+Pilot simulation passed.
+Total orders: 30
+Delivered orders: 30
+Services: data-cleaning-formatting, presentation-pitch-deck, seo-geo-audit
 ```
 
 ## Remaining Beyond Phase 0/1

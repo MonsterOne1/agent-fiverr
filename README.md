@@ -29,6 +29,7 @@ marketplace.
 ```bash
 python3 scripts/generate_service_workspaces.py
 python3 scripts/validate_catalog.py
+python3 scripts/run_pilot_simulation.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
