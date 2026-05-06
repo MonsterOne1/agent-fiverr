@@ -38,6 +38,8 @@ python3 scripts/validate_catalog.py
 python3 scripts/run_pilot_simulation.py
 python3 scripts/run_phase2_simulation.py
 python3 -m unittest discover -s tests -p 'test_*.py'
+python3 -m agent_fiverr.cli discover --category Data
+python3 -m agent_fiverr.cli quote data-cleaning-formatting '{"dataset_file":"contacts.csv","target_schema":"email,name","dedupe_rules":"email","missing_value_rules":"blank","output_format":"csv"}' --package standard
 ```
 
 ## Credential Policy
