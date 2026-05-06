@@ -26,7 +26,7 @@ Implement the Fiverr-agentification plan until acceptance standards are met.
 | Revision policy and scope detection | `agent_fiverr/order.py`; `services/<slug>/REVISION.md` | Implemented locally |
 | 3 pilot agents / 30 simulated orders | `data/pilot-sample-orders.json`; `scripts/run_pilot_simulation.py` | Implemented as simulation |
 | 20 MVP agents / 10+ samples each | `agent_fiverr/phase2_samples.py`; `scripts/run_phase2_simulation.py` | Implemented as 200-order simulation |
-| Automatic QA + human review loop | `agent_fiverr/qa.py`; `docs/qa-runtime.md` | Baseline implemented |
+| Automatic QA + human review loop | `agent_fiverr/qa.py`; `docs/qa-runtime.md` | Baseline implemented with assignment, SLA, decision records, and JSON persistence |
 | Buyer brief / quote / order status | `agent_fiverr/marketplace.py`; `agent_fiverr/cli.py`; `web/` | Local alpha implemented |
 | Payment/escrow | `agent_fiverr/marketplace.py`; `web/` | Mock escrow only |
 | Marketplace Alpha 100-order metrics | `agent_fiverr/alpha_metrics.py`; `scripts/run_alpha_metrics.py` | Simulated gate only |
@@ -81,7 +81,7 @@ Service specs: 800
 Saleable candidates: 160
 Gate: PASS
 
-Ran 34 tests
+Ran 40 tests
 OK
 
 git diff --check exits 0 with no output.
@@ -99,8 +99,8 @@ Missing or weakly verified requirements:
 - Generated media assets are not produced by Seedance, Banana, GPT Image 2,
   Suno, ElevenLabs, or other providers yet.
 - Payments and escrow are mocked, not integrated with a real payment provider.
-- Human QA pool exists only as an in-memory queue, not reviewer assignment and
-  decision workflow.
+- Human QA workflow has assignment and decision records, but no staffed reviewer
+  pool, dashboard, or notification integration.
 - 100-order alpha metrics are simulated, not real buyer orders.
 - Refund and cancellation rates are simulated, not observed.
 - Long-tail services are generated drafts, not curated/validated marketplace

@@ -1,4 +1,5 @@
 import unittest
+import tempfile
 from pathlib import Path
 
 from agent_fiverr.catalog import Catalog
@@ -39,9 +40,58 @@ class QARuntimeTest(unittest.TestCase):
         item = queue.enqueue("order-1", "presentation-pitch-deck", result)
         self.assertEqual(item.order_id, "order-1")
         self.assertEqual(item.status, "open")
+        self.assertIsNotNone(item.sla_due_at)
         self.assertEqual(len(queue.items), 1)
+
+    def test_human_review_assignment_and_decision_are_recorded(self):
+        queue = HumanReviewQueue()
+        result = self.evaluator.evaluate("presentation-pitch-deck", {"narrative": "thin"}, risk_override="high")
+        item = queue.enqueue("order-1", "presentation-pitch-deck", result, sla_hours=4)
+
+        assigned = queue.assign(item.review_id, "reviewer-a")
+        self.assertEqual(assigned.status, "assigned")
+        self.assertEqual(assigned.reviewer_id, "reviewer-a")
+        self.assertIsNotNone(assigned.assigned_at)
+
+        decided = queue.decide(
+            item.review_id,
+            decision="changes_requested",
+            reviewer_id="reviewer-a",
+            notes="Need stronger evidence and source notes.",
+        )
+        self.assertEqual(decided.status, "changes_requested")
+        self.assertEqual(decided.decision.reviewer_id, "reviewer-a")
+        self.assertEqual(len(queue.pending()), 0)
+
+    def test_human_review_decision_requires_assignment_and_matching_reviewer(self):
+        queue = HumanReviewQueue()
+        result = self.evaluator.evaluate("presentation-pitch-deck", {"narrative": "thin"}, risk_override="high")
+        item = queue.enqueue("order-1", "presentation-pitch-deck", result)
+
+        with self.assertRaisesRegex(ValueError, "must be assigned"):
+            queue.decide(item.review_id, decision="approved", reviewer_id="reviewer-a", notes="ok")
+
+        queue.assign(item.review_id, "reviewer-a")
+        with self.assertRaises(PermissionError):
+            queue.decide(item.review_id, decision="approved", reviewer_id="reviewer-b", notes="ok")
+
+    def test_human_review_queue_persists_round_trip(self):
+        queue = HumanReviewQueue()
+        result = self.evaluator.evaluate("presentation-pitch-deck", {"narrative": "thin"}, risk_override="high")
+        item = queue.enqueue("order-1", "presentation-pitch-deck", result)
+        queue.assign(item.review_id, "reviewer-a")
+        queue.decide(item.review_id, decision="approved", reviewer_id="reviewer-a", notes="ready")
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            path = Path(tmp_dir) / "reviews.json"
+            queue.save(path)
+            loaded = HumanReviewQueue.load(path)
+
+        self.assertEqual(len(loaded.items), 1)
+        self.assertEqual(loaded.items[0].status, "approved")
+        self.assertEqual(loaded.items[0].qa_result.reasons, result.reasons)
+        self.assertEqual(loaded.items[0].decision.notes, "ready")
 
 
 if __name__ == "__main__":
     unittest.main()
-
