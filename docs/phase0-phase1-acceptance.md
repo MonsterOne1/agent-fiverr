@@ -32,6 +32,7 @@ catalog validation.
 | Automatic QA and human review loop has executable baseline | `agent_fiverr/qa.py` and `docs/qa-runtime.md` | QA runtime blocks incomplete deliverables, escalates high-risk work, and evaluates all 200 Phase 2 sample orders |
 | Marketplace alpha kernel exists | `agent_fiverr/marketplace.py` and `docs/marketplace-runtime.md` | Unit tests cover service discovery, quote readiness, package price/SLA, order creation, mock escrow hold, and CLI buyer flow |
 | Buyer-facing marketplace/workroom alpha UI exists | `web/` and `docs/web-alpha.md` | Static tests cover required regions and 20 MVP services; headless Chrome screenshots verify desktop and mobile rendering |
+| Marketplace alpha metrics thresholds are executable | `agent_fiverr/alpha_metrics.py` and `docs/alpha-metrics.md` | `scripts/run_alpha_metrics.py` simulates 100 orders and checks cancellation, refund, response, and delivery-speed gates |
 
 ## Current Validator
 
@@ -41,6 +42,7 @@ Run:
 python3 scripts/validate_catalog.py
 python3 scripts/run_pilot_simulation.py
 python3 scripts/run_phase2_simulation.py
+python3 scripts/run_alpha_metrics.py
 ```
 
 Expected output:
@@ -65,19 +67,30 @@ Services: 20
 Provider dry-run traces: 460
 QA evaluations: 200
 Human review items: 0
+
+Alpha metrics simulation
+Total orders: 100
+Cancellation rate: 7.0%
+Refund rate: 3.0%
+Average first response: 34.6s
+Delivery speed improvement: 93.5%
+Gate: PASS
 ```
 
-## Remaining Beyond Phase 0/1
+## Remaining Beyond Current Local Alpha
 
-- Real order runner and workroom UI are not implemented.
+- Local order runner and static workroom UI are implemented, but hosted
+  production persistence and real buyer accounts are not.
 - No API keys are configured yet.
-- Golden samples are named across all 20 services; the first three pilot agents
-  have 30 structured seed sample orders, but these are not yet expanded into
-  full expected output files.
-- Automatic quality scoring exists as rubric text, not an executable evaluator.
+- Golden samples are named across all 20 services; simulations create structured
+  sample orders and schema-complete placeholder deliverables, but these are not
+  yet expanded into real expected output files.
+- Automatic quality scoring has an executable baseline, but service-specific
+  rubrics still need deeper scoring beyond required-field validation and risk
+  escalation.
 - Phase 2 now has 10 generated lifecycle samples per MVP service, but these are
   synthetic runtime simulations with provider dry-run traces. They still need
   real expected outputs, real provider adapters once keys are supplied, and
   service-specific quality scoring beyond required-field checks.
-- Phase 3 requires real buyer orders, payments/escrow, cancellation/refund
-  tracking, and human QA pool.
+- Phase 3 metrics have executable simulated gates, but still require real buyer
+  orders, real payments/escrow, cancellation/refund tracking, and human QA pool.
