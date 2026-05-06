@@ -24,6 +24,7 @@ class Phase2SamplesTest(unittest.TestCase):
         self.assertEqual(summary.delivered_orders, 200)
         self.assertEqual(len(summary.services), 20)
         self.assertGreater(summary.provider_traces, 200)
+        self.assertEqual(summary.qa_evaluations, 200)
 
 
 if __name__ == "__main__":

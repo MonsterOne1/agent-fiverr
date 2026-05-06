@@ -16,6 +16,7 @@ marketplace.
   pilot agents: SEO audit, data cleaning, and presentation deck.
 - `agent_fiverr/phase2_samples.py` - generated 200-sample Phase 2 order set:
   10 sample orders for each of the 20 MVP services.
+- `agent_fiverr/qa.py` - automatic QA evaluator and human review queue.
 - `services/<service>/` - generated workspace spec for each MVP service.
 - `templates/agent-service-template/` - reusable service workspace template.
 - `schemas/` - JSON schemas for service specs and workspace manifests.

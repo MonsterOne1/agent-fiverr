@@ -10,6 +10,7 @@ from typing import Any
 from .catalog import Catalog, Service
 from .order import OrderRuntime
 from .providers import ProviderRuntime
+from .qa import HumanReviewQueue, QAEvaluator
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +22,8 @@ class Phase2SimulationSummary:
     delivered_orders: int
     services: tuple[str, ...]
     provider_traces: int
+    qa_evaluations: int
+    human_review_items: int
 
 
 def generate_phase2_sample_orders(root: Path = ROOT, samples_per_service: int = 10) -> list[dict[str, Any]]:
@@ -41,9 +44,12 @@ def run_phase2_simulation(root: Path = ROOT) -> Phase2SimulationSummary:
         catalog = Catalog(runtime_root)
         runtime = OrderRuntime(runtime_root, catalog)
         providers = ProviderRuntime(catalog)
+        evaluator = QAEvaluator(catalog)
+        review_queue = HumanReviewQueue()
 
         delivered = 0
         provider_traces = 0
+        qa_evaluations = 0
         services: set[str] = set()
         for sample in samples:
             service = catalog.get_service(sample["service_slug"])
@@ -52,15 +58,17 @@ def run_phase2_simulation(root: Path = ROOT) -> Phase2SimulationSummary:
                 raise AssertionError(f"{sample['sample_id']} missing brief fields: {order.missing_brief_fields}")
             for state in ["scope_check", "quote", "plan", "work", "qa"]:
                 runtime.transition(order, state)  # type: ignore[arg-type]
-            runtime.add_deliverable(
-                order,
-                {
-                    field: f"Simulated {field} for {sample['sample_id']}"
-                    for field in service.output_fields
-                },
-                qa_score=4,
-                qa_notes=sample["qa_expectations"],
-            )
+            payload = {
+                field: f"Simulated {field} for {sample['sample_id']}"
+                for field in service.output_fields
+            }
+            qa_result = evaluator.evaluate(service.slug, payload)
+            qa_evaluations += 1
+            if qa_result.status == "block":
+                raise AssertionError(f"{sample['sample_id']} blocked by QA: {qa_result.reasons}")
+            if qa_result.status == "human_review":
+                review_queue.enqueue(order.order_id, service.slug, qa_result)
+            runtime.add_deliverable(order, payload, qa_score=qa_result.score, qa_notes=list(qa_result.reasons))
             for provider_id in service.api_providers:
                 providers.run(
                     service.slug,
@@ -79,6 +87,8 @@ def run_phase2_simulation(root: Path = ROOT) -> Phase2SimulationSummary:
         delivered_orders=delivered,
         services=tuple(sorted(services)),
         provider_traces=provider_traces,
+        qa_evaluations=qa_evaluations,
+        human_review_items=len(review_queue.items),
     )
 
 

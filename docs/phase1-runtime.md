@@ -18,6 +18,7 @@ This repo now includes a minimal local runtime for the plan's Phase 1 gates.
 - Run 200 generated Phase 2 sample orders: 10 for each MVP service.
 - Emit provider dry-run traces for every provider required by every Phase 2
   sample order.
+- Evaluate every Phase 2 deliverable with the QA runtime before delivery.
 
 ## Commands
 
