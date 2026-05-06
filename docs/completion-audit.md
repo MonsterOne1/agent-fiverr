@@ -22,6 +22,7 @@ Implement the Fiverr-agentification plan until acceptance standards are met.
 | Agent workspace template | `templates/agent-service-template/` | Implemented |
 | Order lifecycle/state machine | `agent_fiverr/order.py`; `tests/test_order_runtime.py` | Implemented locally |
 | Tool permissions and audit logs | `agent_fiverr/order.py`; `agent_fiverr/providers.py` | Implemented locally |
+| Replayable trust ledger | `agent_fiverr/trust.py`; `docs/trust-ledger.md`; `tests/test_trust.py` | Implemented for order audit, deliverables, provider traces, QA results, and escrow events |
 | Deliverable versioning | `agent_fiverr/order.py`; `tests/test_order_runtime.py` | Implemented locally |
 | Revision policy and scope detection | `agent_fiverr/order.py`; `services/<slug>/REVISION.md` | Implemented locally |
 | 3 pilot agents / 30 simulated orders | `data/pilot-sample-orders.json`; `scripts/run_pilot_simulation.py` | Implemented as simulation |
@@ -100,7 +101,7 @@ Services: 20
 Fixtures per service: 5
 Gate: PASS
 
-Ran 58 tests
+Ran 60 tests
 OK
 
 git diff --check exits 0 with no output.

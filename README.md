@@ -21,6 +21,8 @@ marketplace.
 - `agent_fiverr/qa.py` - automatic QA evaluator and human review queue.
 - `agent_fiverr/marketplace.py` - local marketplace orchestrator for discovery,
   quotes, quote acceptance, and mock escrow holds.
+- `agent_fiverr/trust.py` - trust ledger export for order replay across audit,
+  deliverables, provider traces, QA results, and escrow events.
 - `agent_fiverr/alpha_metrics.py` - executable Marketplace Alpha metric gates
   for 100-order readiness simulation.
 - `agent_fiverr/costs.py` - local cost-ratio gate for MVP service economics.
