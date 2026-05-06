@@ -23,6 +23,7 @@ marketplace.
   quotes, quote acceptance, and mock escrow holds.
 - `agent_fiverr/alpha_metrics.py` - executable Marketplace Alpha metric gates
   for 100-order readiness simulation.
+- `agent_fiverr/costs.py` - local cost-ratio gate for MVP service economics.
 - `agent_fiverr/long_tail.py` - Phase 4 long-tail service generator and
   validator.
 - `data/long-tail-services.generated.json` - generated 800-service long-tail
@@ -50,6 +51,7 @@ python3 scripts/validate_catalog.py
 python3 scripts/run_pilot_simulation.py
 python3 scripts/run_phase2_simulation.py
 python3 scripts/run_alpha_metrics.py
+python3 scripts/run_cost_gate.py
 python3 scripts/generate_long_tail_catalog.py
 python3 scripts/generate_eval_fixtures.py
 python3 -m unittest discover -s tests -p 'test_*.py'

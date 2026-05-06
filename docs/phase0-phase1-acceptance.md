@@ -35,6 +35,7 @@ catalog validation.
 | Marketplace alpha kernel exists | `agent_fiverr/marketplace.py`, `agent_fiverr/payments.py`, and `docs/marketplace-runtime.md` | Unit tests cover service discovery, quote readiness, package price/SLA, order creation, mock escrow hold, Stripe Connect payment scaffold, release/refund/dispute actions, and CLI buyer flow |
 | Buyer-facing marketplace/workroom alpha UI exists | `web/` and `docs/web-alpha.md` | Static tests cover required regions and 20 MVP services; headless Chrome screenshots verify desktop and mobile rendering |
 | Marketplace alpha metrics thresholds are executable | `agent_fiverr/alpha_metrics.py` and `docs/alpha-metrics.md` | `scripts/run_alpha_metrics.py` simulates 100 orders and checks cancellation, refund, response, and delivery-speed gates |
+| Platform cost threshold is executable | `agent_fiverr/costs.py` and `docs/cost-gate.md` | `scripts/run_cost_gate.py` checks 20 MVP services against a 30% cost-ratio threshold |
 | Phase 4 long-tail expansion gate is executable | `agent_fiverr/long_tail.py`, `data/long-tail-services.generated.json`, and `docs/long-tail-catalog.md` | Generator produces 800 service specs, 160 saleable candidates, and minimum eval pack references for every service |
 
 ## Current Validator
@@ -46,6 +47,7 @@ python3 scripts/validate_catalog.py
 python3 scripts/run_pilot_simulation.py
 python3 scripts/run_phase2_simulation.py
 python3 scripts/run_alpha_metrics.py
+python3 scripts/run_cost_gate.py
 python3 scripts/generate_long_tail_catalog.py
 python3 scripts/generate_eval_fixtures.py
 ```
@@ -81,6 +83,13 @@ Cancellation rate: 7.0%
 Refund rate: 3.0%
 Average first response: 34.6s
 Delivery speed improvement: 93.5%
+Gate: PASS
+
+Cost gate simulation
+Services checked: 20
+Package: standard
+Threshold: 30%
+Max cost ratio: 18.4%
 Gate: PASS
 
 Long-tail catalog generated.

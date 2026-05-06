@@ -32,6 +32,7 @@ Implement the Fiverr-agentification plan until acceptance standards are met.
 | Payment/escrow | `agent_fiverr/marketplace.py`; `agent_fiverr/payments.py`; `web/` | Mock escrow, Stripe Connect scaffold, release, refund, and dispute actions implemented without live calls |
 | Credential/key handoff | `.env.example`; `docs/credential-onboarding.md`; `tests/test_credentials.py` | Empty key placeholders and onboarding checklist implemented |
 | Marketplace Alpha 100-order metrics | `agent_fiverr/alpha_metrics.py`; `scripts/run_alpha_metrics.py` | Simulated gate only |
+| Cost below 20%-30% of service price | `agent_fiverr/costs.py`; `scripts/run_cost_gate.py`; `docs/cost-gate.md` | Simulated 30% cost-ratio gate implemented for 20 MVP services |
 | Long-tail 500+ specs and 100+ saleable candidates | `agent_fiverr/long_tail.py`; `data/long-tail-services.generated.json` | Generated draft implemented |
 
 ## Fresh Verification Commands
@@ -41,6 +42,7 @@ python3 scripts/validate_catalog.py
 python3 scripts/run_pilot_simulation.py
 python3 scripts/run_phase2_simulation.py
 python3 scripts/run_alpha_metrics.py
+python3 scripts/run_cost_gate.py
 python3 scripts/generate_long_tail_catalog.py
 python3 scripts/generate_eval_fixtures.py
 python3 -m unittest discover -s tests -p 'test_*.py'
@@ -80,6 +82,13 @@ Average first response: 34.6s
 Delivery speed improvement: 93.5%
 Gate: PASS
 
+Cost gate simulation
+Services checked: 20
+Package: standard
+Threshold: 30%
+Max cost ratio: 18.4%
+Gate: PASS
+
 Long-tail catalog generated.
 Service specs: 800
 Saleable candidates: 160
@@ -91,7 +100,7 @@ Services: 20
 Fixtures per service: 5
 Gate: PASS
 
-Ran 55 tests
+Ran 57 tests
 OK
 
 git diff --check exits 0 with no output.
@@ -114,6 +123,7 @@ Missing or weakly verified requirements:
   pool, dashboard, or notification integration.
 - 100-order alpha metrics are simulated, not real buyer orders.
 - Refund and cancellation rates are simulated, not observed.
+- Cost ratios are simulated, not based on real provider invoices.
 - Long-tail services are generated drafts, not curated/validated marketplace
   listings.
 - Eval fixtures exist for every MVP service, but expected deliverables are
