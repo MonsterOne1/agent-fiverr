@@ -11,3 +11,6 @@ build/
 coverage/
 *.log
 .worktrees/
+__pycache__/
+.pytest_cache/
+workrooms/

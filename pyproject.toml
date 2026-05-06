@@ -1,0 +1,9 @@
+[project]
+name = "agent-fiverr"
+version = "0.1.0"
+description = "Service catalog and minimal order runtime for an agent-native Fiverr marketplace"
+requires-python = ">=3.11"
+
+[tool.agent-fiverr]
+catalog = "data/mvp-services.json"
+

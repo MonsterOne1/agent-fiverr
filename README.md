@@ -17,6 +17,9 @@ marketplace.
 - `services/<service>/` - generated workspace spec for each MVP service.
 - `templates/agent-service-template/` - reusable service workspace template.
 - `schemas/` - JSON schemas for service specs and workspace manifests.
+- `agent_fiverr/` - minimal local catalog/order runtime for Phase 1 gates.
+- `tests/` - unit tests for catalog loading, brief validation, lifecycle,
+  authorization gates, deliverable versioning, and revision scope.
 - `scripts/generate_service_workspaces.py` - generates service workspaces from
   `data/mvp-services.json`.
 - `scripts/validate_catalog.py` - validates Phase 0/1 catalog acceptance gates.
@@ -26,6 +29,7 @@ marketplace.
 ```bash
 python3 scripts/generate_service_workspaces.py
 python3 scripts/validate_catalog.py
+python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
 ## Credential Policy
