@@ -9,6 +9,7 @@ from typing import Any
 
 from .catalog import Catalog, Service
 from .order import OrderRuntime
+from .providers import ProviderRuntime
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,6 +20,7 @@ class Phase2SimulationSummary:
     total_orders: int
     delivered_orders: int
     services: tuple[str, ...]
+    provider_traces: int
 
 
 def generate_phase2_sample_orders(root: Path = ROOT, samples_per_service: int = 10) -> list[dict[str, Any]]:
@@ -38,8 +40,10 @@ def run_phase2_simulation(root: Path = ROOT) -> Phase2SimulationSummary:
             (runtime_root / dirname).symlink_to(root / dirname, target_is_directory=True)
         catalog = Catalog(runtime_root)
         runtime = OrderRuntime(runtime_root, catalog)
+        providers = ProviderRuntime(catalog)
 
         delivered = 0
+        provider_traces = 0
         services: set[str] = set()
         for sample in samples:
             service = catalog.get_service(sample["service_slug"])
@@ -57,6 +61,15 @@ def run_phase2_simulation(root: Path = ROOT) -> Phase2SimulationSummary:
                 qa_score=4,
                 qa_notes=sample["qa_expectations"],
             )
+            for provider_id in service.api_providers:
+                providers.run(
+                    service.slug,
+                    provider_id,
+                    "simulate_provider_output",
+                    {"sample_id": sample["sample_id"]},
+                    dry_run=True,
+                )
+                provider_traces += 1
             runtime.transition(order, "delivery")
             delivered += 1
             services.add(service.slug)
@@ -65,6 +78,7 @@ def run_phase2_simulation(root: Path = ROOT) -> Phase2SimulationSummary:
         total_orders=len(samples),
         delivered_orders=delivered,
         services=tuple(sorted(services)),
+        provider_traces=provider_traces,
     )
 
 
@@ -86,4 +100,3 @@ def _sample_for_service(service: Service, index: int) -> dict[str, Any]:
 def _brief_value(service: Service, field: str, index: int) -> str:
     readable = field.replace("_", " ")
     return f"{service.name} sample {index} {readable}"
-

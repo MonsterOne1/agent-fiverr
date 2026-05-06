@@ -16,6 +16,8 @@ This repo now includes a minimal local runtime for the plan's Phase 1 gates.
 - Classify revision requests as in-scope or scope-change candidates.
 - Run the 30 seed pilot sample orders through the local lifecycle runtime.
 - Run 200 generated Phase 2 sample orders: 10 for each MVP service.
+- Emit provider dry-run traces for every provider required by every Phase 2
+  sample order.
 
 ## Commands
 

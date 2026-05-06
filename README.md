@@ -21,7 +21,8 @@ marketplace.
 - `schemas/` - JSON schemas for service specs and workspace manifests.
 - `agent_fiverr/` - minimal local catalog/order runtime for Phase 1 gates.
 - `tests/` - unit tests for catalog loading, brief validation, lifecycle,
-  authorization gates, deliverable versioning, and revision scope.
+  authorization gates, deliverable versioning, revision scope, provider dry-runs,
+  and Phase 2 sample simulations.
 - `scripts/generate_service_workspaces.py` - generates service workspaces from
   `data/mvp-services.json`.
 - `scripts/validate_catalog.py` - validates Phase 0/1 catalog acceptance gates.

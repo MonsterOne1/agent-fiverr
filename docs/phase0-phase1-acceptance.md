@@ -27,7 +27,8 @@ catalog validation.
 | External side effects require explicit authorization | `POLICY.md` and `WORKSPACE_MANIFEST.json` | Validator checks policy text for services using side-effect providers |
 | Seed first 3 pilot agents with 30 simulated orders | `data/pilot-sample-orders.json` | Validator checks exactly 30 samples, 10 each for SEO audit, data cleaning, and presentation deck |
 | Run first 3 pilot agents through local order lifecycle | `scripts/run_pilot_simulation.py` | Simulation creates 30 temporary workroom orders, advances them to delivery, and adds QA-passing deliverables |
-| Phase 2 sample baseline: 20 MVP agents each have at least 10 sample orders | `agent_fiverr/phase2_samples.py` | `scripts/run_phase2_simulation.py` generates 200 orders, 10 per MVP service, and advances all to delivery |
+| Phase 2 sample baseline: 20 MVP agents each have at least 10 sample orders | `agent_fiverr/phase2_samples.py` | `scripts/run_phase2_simulation.py` generates 200 orders, 10 per MVP service, advances all to delivery, and emits provider dry-run traces |
+| Provider/API requirements are executable without keys | `agent_fiverr/providers.py` and `docs/provider-runtime.md` | Provider runtime reports missing credentials, blocks real calls without keys, and supports dry-run traces |
 
 ## Current Validator
 
@@ -58,6 +59,7 @@ Phase 2 simulation passed.
 Total orders: 200
 Delivered orders: 200
 Services: 20
+Provider dry-run traces: 460
 ```
 
 ## Remaining Beyond Phase 0/1
@@ -69,8 +71,8 @@ Services: 20
   full expected output files.
 - Automatic quality scoring exists as rubric text, not an executable evaluator.
 - Phase 2 now has 10 generated lifecycle samples per MVP service, but these are
-  synthetic runtime simulations. They still need real expected outputs, provider
-  calls or mocks, and human/automatic quality scoring beyond schema and QA gate
-  checks.
+  synthetic runtime simulations with provider dry-run traces. They still need
+  real expected outputs, real provider adapters once keys are supplied, and
+  human/automatic quality scoring beyond schema and QA gate checks.
 - Phase 3 requires real buyer orders, payments/escrow, cancellation/refund
   tracking, and human QA pool.

@@ -18,11 +18,11 @@ def main() -> int:
         "Phase 2 simulation passed.\n"
         f"Total orders: {summary.total_orders}\n"
         f"Delivered orders: {summary.delivered_orders}\n"
-        f"Services: {len(summary.services)}"
+        f"Services: {len(summary.services)}\n"
+        f"Provider dry-run traces: {summary.provider_traces}"
     )
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
