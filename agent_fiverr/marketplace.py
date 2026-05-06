@@ -1,4 +1,4 @@
-"""Local marketplace orchestrator for service discovery, quotes, and escrow mock."""
+"""Local marketplace orchestrator for service discovery, quotes, and escrow."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ from typing import Literal
 
 from .catalog import Catalog, Service
 from .order import OrderRuntime
+from .payments import EscrowProvider, EscrowRuntime
 
 
 Package = Literal["basic", "standard", "premium"]
@@ -48,12 +49,20 @@ class Checkout:
     buyer_id: str
     amount_usd: int
     escrow_status: str
+    escrow_provider: str
+    escrow_hold_id: str
 
 
 class Marketplace:
-    def __init__(self, catalog: Catalog, order_runtime: OrderRuntime):
+    def __init__(
+        self,
+        catalog: Catalog,
+        order_runtime: OrderRuntime,
+        escrow_runtime: EscrowRuntime | None = None,
+    ):
         self.catalog = catalog
         self.order_runtime = order_runtime
+        self.escrow_runtime = escrow_runtime or EscrowRuntime()
 
     def discover(self, *, category: str | None = None, task_type: str | None = None) -> list[Service]:
         services = self.catalog.services
@@ -81,16 +90,32 @@ class Marketplace:
             brief=brief,
         )
 
-    def accept_quote(self, quote: Quote, buyer_id: str) -> Checkout:
+    def accept_quote(
+        self,
+        quote: Quote,
+        buyer_id: str,
+        *,
+        escrow_provider: EscrowProvider | None = None,
+        dry_run_payment: bool = True,
+    ) -> Checkout:
         if not quote.ready:
             raise ValueError("Cannot accept quote with missing brief fields.")
         order = self.order_runtime.create_order(quote.service_slug, quote.brief)
+        escrow = self.escrow_runtime.hold_funds(
+            order_id=order.order_id,
+            quote_id=quote.quote_id,
+            buyer_id=buyer_id,
+            amount_usd=quote.price_usd,
+            provider_id=escrow_provider,
+            dry_run=dry_run_payment,
+        )
         return Checkout(
             checkout_id=str(uuid.uuid4()),
             order_id=order.order_id,
             quote_id=quote.quote_id,
             buyer_id=buyer_id,
             amount_usd=quote.price_usd,
-            escrow_status="held",
+            escrow_status=escrow.status,
+            escrow_provider=escrow.provider_id,
+            escrow_hold_id=escrow.hold_id,
         )
-

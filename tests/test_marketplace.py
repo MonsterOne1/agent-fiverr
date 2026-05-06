@@ -55,10 +55,28 @@ class MarketplaceTest(unittest.TestCase):
         })
         checkout = self.marketplace.accept_quote(quote, buyer_id="buyer-1")
         self.assertEqual(checkout.escrow_status, "held")
+        self.assertEqual(checkout.escrow_provider, "mock")
+        self.assertTrue(checkout.escrow_hold_id)
         loaded = self.marketplace.order_runtime.load(checkout.order_id)
         self.assertEqual(loaded.service_slug, "data-cleaning-formatting")
+
+    def test_accepting_quote_can_use_stripe_connect_scaffold(self):
+        quote = self.marketplace.quote("data-cleaning-formatting", {
+            "dataset_file": "contacts.csv",
+            "target_schema": "email,name",
+            "dedupe_rules": "email",
+            "missing_value_rules": "blank",
+            "output_format": "csv",
+        })
+        checkout = self.marketplace.accept_quote(
+            quote,
+            buyer_id="buyer-1",
+            escrow_provider="stripe_connect",
+            dry_run_payment=True,
+        )
+        self.assertEqual(checkout.escrow_provider, "stripe_connect")
+        self.assertEqual(checkout.escrow_status, "planned")
 
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -28,7 +28,7 @@ Implement the Fiverr-agentification plan until acceptance standards are met.
 | 20 MVP agents / 10+ samples each | `agent_fiverr/phase2_samples.py`; `scripts/run_phase2_simulation.py` | Implemented as 200-order simulation |
 | Automatic QA + human review loop | `agent_fiverr/qa.py`; `docs/qa-runtime.md` | Baseline implemented with assignment, SLA, decision records, and JSON persistence |
 | Buyer brief / quote / order status | `agent_fiverr/marketplace.py`; `agent_fiverr/cli.py`; `web/` | Local alpha implemented |
-| Payment/escrow | `agent_fiverr/marketplace.py`; `web/` | Mock escrow only |
+| Payment/escrow | `agent_fiverr/marketplace.py`; `agent_fiverr/payments.py`; `web/` | Mock escrow implemented; Stripe Connect scaffold implemented without live calls |
 | Marketplace Alpha 100-order metrics | `agent_fiverr/alpha_metrics.py`; `scripts/run_alpha_metrics.py` | Simulated gate only |
 | Long-tail 500+ specs and 100+ saleable candidates | `agent_fiverr/long_tail.py`; `data/long-tail-services.generated.json` | Generated draft implemented |
 
@@ -81,7 +81,7 @@ Service specs: 800
 Saleable candidates: 160
 Gate: PASS
 
-Ran 40 tests
+Ran 47 tests
 OK
 
 git diff --check exits 0 with no output.
@@ -98,7 +98,8 @@ Missing or weakly verified requirements:
   configured and live network calls are not enabled.
 - Generated media assets are not produced by Seedance, Banana, GPT Image 2,
   Suno, ElevenLabs, or other providers yet.
-- Payments and escrow are mocked, not integrated with a real payment provider.
+- Payments and escrow have mock and Stripe Connect scaffolds, but no live
+  payment provider is enabled.
 - Human QA workflow has assignment and decision records, but no staffed reviewer
   pool, dashboard, or notification integration.
 - 100-order alpha metrics are simulated, not real buyer orders.

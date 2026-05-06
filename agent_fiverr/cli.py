@@ -43,6 +43,7 @@ def main() -> int:
     accept_parser.add_argument("brief_json")
     accept_parser.add_argument("--package", choices=["basic", "standard", "premium"], default="basic")
     accept_parser.add_argument("--buyer-id", required=True)
+    accept_parser.add_argument("--escrow-provider", choices=["mock", "stripe_connect"], default="mock")
 
     args = parser.parse_args()
     catalog = Catalog(ROOT)
@@ -82,7 +83,7 @@ def main() -> int:
         brief = _load_json_arg(args.brief_json)
         marketplace = Marketplace(catalog, OrderRuntime(ROOT, catalog))
         quote = marketplace.quote(args.service_slug, brief, package=args.package)
-        checkout = marketplace.accept_quote(quote, buyer_id=args.buyer_id)
+        checkout = marketplace.accept_quote(quote, buyer_id=args.buyer_id, escrow_provider=args.escrow_provider)
         print(json.dumps(asdict(checkout), indent=2))
         return 0
 

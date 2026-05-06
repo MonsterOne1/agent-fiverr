@@ -49,9 +49,31 @@ class CLITest(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         payload = json.loads(result.stdout)
         self.assertEqual(payload["escrow_status"], "held")
+        self.assertEqual(payload["escrow_provider"], "mock")
         self.assertEqual(payload["buyer_id"], "buyer-1")
+
+    def test_accept_quote_supports_stripe_connect_scaffold(self):
+        brief = json.dumps({
+            "dataset_file": "contacts.csv",
+            "target_schema": "email,name",
+            "dedupe_rules": "email",
+            "missing_value_rules": "blank",
+            "output_format": "csv",
+        })
+        result = self.run_cli(
+            "accept-quote",
+            "data-cleaning-formatting",
+            brief,
+            "--buyer-id",
+            "buyer-1",
+            "--escrow-provider",
+            "stripe_connect",
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        payload = json.loads(result.stdout)
+        self.assertEqual(payload["escrow_status"], "planned")
+        self.assertEqual(payload["escrow_provider"], "stripe_connect")
 
 
 if __name__ == "__main__":
     unittest.main()
-
