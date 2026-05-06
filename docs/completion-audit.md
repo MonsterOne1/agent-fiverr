@@ -29,6 +29,7 @@ Implement the Fiverr-agentification plan until acceptance standards are met.
 | Automatic QA + human review loop | `agent_fiverr/qa.py`; `docs/qa-runtime.md` | Baseline implemented with assignment, SLA, decision records, and JSON persistence |
 | Buyer brief / quote / order status | `agent_fiverr/marketplace.py`; `agent_fiverr/cli.py`; `web/` | Local alpha implemented |
 | Payment/escrow | `agent_fiverr/marketplace.py`; `agent_fiverr/payments.py`; `web/` | Mock escrow implemented; Stripe Connect scaffold implemented without live calls |
+| Credential/key handoff | `.env.example`; `docs/credential-onboarding.md`; `tests/test_credentials.py` | Empty key placeholders and onboarding checklist implemented |
 | Marketplace Alpha 100-order metrics | `agent_fiverr/alpha_metrics.py`; `scripts/run_alpha_metrics.py` | Simulated gate only |
 | Long-tail 500+ specs and 100+ saleable candidates | `agent_fiverr/long_tail.py`; `data/long-tail-services.generated.json` | Generated draft implemented |
 
@@ -81,7 +82,7 @@ Service specs: 800
 Saleable candidates: 160
 Gate: PASS
 
-Ran 47 tests
+Ran 49 tests
 OK
 
 git diff --check exits 0 with no output.
@@ -111,8 +112,9 @@ Missing or weakly verified requirements:
 
 ## Next Required Inputs
 
-- Provider keys and priority provider order.
-- Payment/escrow provider choice.
+- Provider keys in `.env` or a secret manager, starting from `.env.example`.
+- Payment/escrow provider confirmation and Stripe account readiness if Stripe
+  Connect is the first live provider.
 - Human QA/reviewer workflow decision.
 - Whether to turn the static web alpha into a hosted full-stack app.
 - Real pilot customer/order source for true Phase 3 acceptance.

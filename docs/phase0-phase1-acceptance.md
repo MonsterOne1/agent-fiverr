@@ -17,6 +17,7 @@ catalog validation.
 | Map services to task type, automation level, risk, tools, deliverables | `data/mvp-services.json` | Validator checks every service has these fields |
 | Capture API/provider requirements by task type | `data/api-provider-matrix.json` | Validator checks every referenced provider exists |
 | Include owner-named APIs for media work | Seedance/Kling/Renoise for video, Banana/GPT Image 2 for image/design, Suno for music, ElevenLabs for voiceover/TTS | Provider matrix and relevant service specs reference these providers |
+| Document key handoff without committing secrets | `.env.example` and `docs/credential-onboarding.md` | Tests check every provider/payment credential has an empty placeholder |
 | Produce 20 MVP service specs | `services/<slug>/` for 20 services | Validator checks exactly 20 services and generated workspaces |
 | Each MVP service has brief schema | `services/<slug>/BRIEF_SCHEMA.json` | Validator checks brief fields are required |
 | Each MVP service has deliverable schema | `services/<slug>/DELIVERABLE_SCHEMA.json` | Validator checks output fields are required |
