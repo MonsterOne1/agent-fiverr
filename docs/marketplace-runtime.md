@@ -15,6 +15,9 @@ layer. It is not a hosted UI or real payment system yet.
 - Keep the default local mock escrow compatible with current alpha checkout.
 - Provide a Stripe Connect escrow scaffold with credential checks and call
   plans, without creating external payment objects.
+- Record escrow release, refund, and dispute actions with authorization IDs,
+  refund amount validation, reasons, evidence references, and provider call
+  plans.
 - Expose discovery, quote, and quote acceptance through `agent_fiverr.cli`.
 
 ## Evidence
@@ -25,7 +28,7 @@ Ran 5 tests
 OK
 
 python3 -m unittest discover -s tests -p 'test_payments.py'
-Ran 5 tests
+Ran 9 tests
 OK
 
 python3 -m unittest discover -s tests -p 'test_cli.py'
@@ -38,6 +41,6 @@ OK
 - Buyer-facing web UI.
 - Live Stripe Connect payment intent/capture/transfer calls after provider
   approval and `STRIPE_SECRET_KEY` setup.
-- Refund/cancellation metrics.
-- Dispute handling.
+- Real refund/cancellation metrics from production orders.
+- Hosted dispute dashboard and external payment dispute evidence submission.
 - Production persistence beyond local JSON workrooms.

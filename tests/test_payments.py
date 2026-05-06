@@ -77,6 +77,74 @@ class PaymentRuntimeTest(unittest.TestCase):
         self.assertIn("manual_capture", spec.capabilities)
         self.assertEqual(spec.credential_env, "STRIPE_SECRET_KEY")
 
+    def test_mock_escrow_release_requires_authorization_and_records_action(self):
+        runtime = EscrowRuntime()
+        hold = runtime.hold_funds(
+            order_id="order-1",
+            quote_id="quote-1",
+            buyer_id="buyer-1",
+            amount_usd=150,
+        )
+        with self.assertRaises(PermissionError):
+            runtime.release_funds(hold, authorization_id="")
+
+        action = runtime.release_funds(hold, authorization_id="buyer-acceptance-1")
+        self.assertEqual(action.action, "release")
+        self.assertEqual(action.status, "released")
+        self.assertEqual(action.amount_usd, 150)
+        self.assertEqual(action.authorization_id, "buyer-acceptance-1")
+
+    def test_mock_escrow_refund_validates_amount_and_records_reason(self):
+        runtime = EscrowRuntime()
+        hold = runtime.hold_funds(
+            order_id="order-1",
+            quote_id="quote-1",
+            buyer_id="buyer-1",
+            amount_usd=150,
+        )
+        with self.assertRaises(ValueError):
+            runtime.refund(hold, reason="duplicate", authorization_id="support-1", amount_usd=175)
+
+        action = runtime.refund(hold, reason="buyer cancellation", authorization_id="support-1", amount_usd=75)
+        self.assertEqual(action.action, "refund")
+        self.assertEqual(action.status, "refunded")
+        self.assertEqual(action.amount_usd, 75)
+        self.assertEqual(action.reason, "buyer cancellation")
+
+    def test_mock_escrow_dispute_requires_evidence(self):
+        runtime = EscrowRuntime()
+        hold = runtime.hold_funds(
+            order_id="order-1",
+            quote_id="quote-1",
+            buyer_id="buyer-1",
+            amount_usd=150,
+        )
+        with self.assertRaises(ValueError):
+            runtime.open_dispute(hold, reason="quality disagreement", evidence_refs=())
+
+        action = runtime.open_dispute(
+            hold,
+            reason="quality disagreement",
+            evidence_refs=("workrooms/order-1/deliverable-v1.json",),
+        )
+        self.assertEqual(action.action, "dispute")
+        self.assertEqual(action.status, "disputed")
+        self.assertEqual(action.evidence_refs, ("workrooms/order-1/deliverable-v1.json",))
+
+    def test_stripe_escrow_actions_remain_planned_until_live_enabled(self):
+        runtime = EscrowRuntime()
+        hold = runtime.hold_funds(
+            order_id="order-1",
+            quote_id="quote-1",
+            buyer_id="buyer-1",
+            amount_usd=150,
+            provider_id="stripe_connect",
+            dry_run=True,
+        )
+        action = runtime.release_funds(hold, authorization_id="buyer-acceptance-1")
+        self.assertEqual(action.status, "planned")
+        self.assertEqual(action.call_plan["escrow_action"], "release")
+
 
 if __name__ == "__main__":
     unittest.main()

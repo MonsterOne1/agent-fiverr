@@ -11,6 +11,8 @@ from typing import Any, Literal
 
 EscrowProvider = Literal["mock", "stripe_connect"]
 EscrowStatus = Literal["held", "planned"]
+EscrowActionName = Literal["release", "refund", "dispute"]
+EscrowActionStatus = Literal["released", "refunded", "disputed", "planned"]
 
 
 @dataclass(frozen=True)
@@ -36,6 +38,21 @@ class EscrowHold:
     created_at: str
     credential_env: str | None
     credential_configured: bool
+    call_plan: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass(frozen=True)
+class EscrowAction:
+    action_id: str
+    hold_id: str
+    provider_id: EscrowProvider
+    action: EscrowActionName
+    status: EscrowActionStatus
+    amount_usd: int | None
+    reason: str
+    authorization_id: str | None
+    evidence_refs: tuple[str, ...]
+    created_at: str
     call_plan: dict[str, Any] = field(default_factory=dict)
 
 
@@ -95,6 +112,63 @@ class EscrowRuntime:
             call_plan=_call_plan(spec, dry_run=dry_run),
         )
 
+    def release_funds(self, hold: EscrowHold, *, authorization_id: str) -> EscrowAction:
+        if not authorization_id:
+            raise PermissionError("Escrow release requires explicit authorization.")
+        return _escrow_action(
+            hold,
+            action="release",
+            status="released" if hold.provider_id == "mock" else "planned",
+            amount_usd=hold.amount_usd,
+            reason="delivery accepted",
+            authorization_id=authorization_id,
+            evidence_refs=(),
+        )
+
+    def refund(
+        self,
+        hold: EscrowHold,
+        *,
+        reason: str,
+        authorization_id: str,
+        amount_usd: int | None = None,
+    ) -> EscrowAction:
+        if not authorization_id:
+            raise PermissionError("Escrow refund requires explicit authorization.")
+        refund_amount = amount_usd if amount_usd is not None else hold.amount_usd
+        if refund_amount <= 0 or refund_amount > hold.amount_usd:
+            raise ValueError("Refund amount must be positive and no more than the escrow hold.")
+        return _escrow_action(
+            hold,
+            action="refund",
+            status="refunded" if hold.provider_id == "mock" else "planned",
+            amount_usd=refund_amount,
+            reason=reason,
+            authorization_id=authorization_id,
+            evidence_refs=(),
+        )
+
+    def open_dispute(
+        self,
+        hold: EscrowHold,
+        *,
+        reason: str,
+        evidence_refs: tuple[str, ...],
+    ) -> EscrowAction:
+        if not reason:
+            raise ValueError("Dispute reason is required.")
+        if not evidence_refs:
+            raise ValueError("Dispute evidence references are required.")
+        return _escrow_action(
+            hold,
+            action="dispute",
+            status="disputed" if hold.provider_id == "mock" else "planned",
+            amount_usd=hold.amount_usd,
+            reason=reason,
+            authorization_id=None,
+            evidence_refs=evidence_refs,
+        )
+
 
 def payment_provider_for(provider_id: EscrowProvider) -> PaymentProviderSpec:
     try:
@@ -121,6 +195,36 @@ def _call_plan(spec: PaymentProviderSpec, *, dry_run: bool) -> dict[str, Any]:
             "the provider is explicitly enabled."
         ),
     }
+
+
+def _escrow_action(
+    hold: EscrowHold,
+    *,
+    action: EscrowActionName,
+    status: EscrowActionStatus,
+    amount_usd: int | None,
+    reason: str,
+    authorization_id: str | None,
+    evidence_refs: tuple[str, ...],
+) -> EscrowAction:
+    spec = payment_provider_for(hold.provider_id)
+    return EscrowAction(
+        action_id=str(uuid.uuid4()),
+        hold_id=hold.hold_id,
+        provider_id=hold.provider_id,
+        action=action,
+        status=status,
+        amount_usd=amount_usd,
+        reason=reason,
+        authorization_id=authorization_id,
+        evidence_refs=evidence_refs,
+        created_at=_now(),
+        call_plan={
+            **_call_plan(spec, dry_run=hold.mode in {"mock", "dry_run"}),
+            "escrow_action": action,
+            "source_hold_status": hold.status,
+        },
+    )
 
 
 def _now() -> str:
