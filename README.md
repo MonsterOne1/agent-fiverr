@@ -17,13 +17,15 @@ marketplace.
 - `agent_fiverr/phase2_samples.py` - generated 200-sample Phase 2 order set:
   10 sample orders for each of the 20 MVP services.
 - `agent_fiverr/qa.py` - automatic QA evaluator and human review queue.
+- `agent_fiverr/marketplace.py` - local marketplace orchestrator for discovery,
+  quotes, quote acceptance, and mock escrow holds.
 - `services/<service>/` - generated workspace spec for each MVP service.
 - `templates/agent-service-template/` - reusable service workspace template.
 - `schemas/` - JSON schemas for service specs and workspace manifests.
 - `agent_fiverr/` - minimal local catalog/order runtime for Phase 1 gates.
 - `tests/` - unit tests for catalog loading, brief validation, lifecycle,
   authorization gates, deliverable versioning, revision scope, provider dry-runs,
-  and Phase 2 sample simulations.
+  QA review, marketplace quotes, and Phase 2 sample simulations.
 - `scripts/generate_service_workspaces.py` - generates service workspaces from
   `data/mvp-services.json`.
 - `scripts/validate_catalog.py` - validates Phase 0/1 catalog acceptance gates.
