@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agent Fiverr Alpha</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Service catalog">
+        <div class="brand">
+          <div class="brand-name">Agent Fiverr</div>
+          <span class="alpha">Alpha</span>
+        </div>
+
+        <section class="nav-section">
+          <div class="section-label">Service Catalog</div>
+          <button class="nav-item active" data-category="all">
+            <span class="nav-icon">▦</span>
+            <span>All Agents</span>
+            <strong id="allCount">20</strong>
+          </button>
+          <div id="categoryNav"></div>
+        </section>
+
+        <section class="saved">
+          <div class="section-row">
+            <div class="section-label">Saved Searches</div>
+            <button class="icon-btn" aria-label="Add saved search">+</button>
+          </div>
+          <button>Brand Launch Pack</button>
+          <button>AI Video Tools</button>
+          <button>Shopify Automations</button>
+        </section>
+
+        <section class="credits">
+          <div class="section-row">
+            <strong>Credits & Escrow</strong>
+            <span>ⓘ</span>
+          </div>
+          <div class="money-row">
+            <span>Escrow Balance</span>
+            <strong>$3,240.00</strong>
+          </div>
+          <div class="money-row">
+            <span>Credits</span>
+            <strong>1,250</strong>
+          </div>
+          <button class="outline-btn">Add Funds</button>
+        </section>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <nav class="tabs" aria-label="Workspace tabs">
+            <button class="tab active">Catalog</button>
+            <button class="tab">Quote</button>
+            <button class="tab">Workroom</button>
+            <button class="tab">QA</button>
+            <button class="tab">Providers</button>
+          </nav>
+          <div class="search-wrap">
+            <input id="searchInput" type="search" placeholder="Search agents, categories, providers..." />
+            <kbd>⌘K</kbd>
+          </div>
+          <div class="account">
+            <button class="icon-btn" aria-label="Notifications">◔</button>
+            <button class="icon-btn" aria-label="Help">?</button>
+            <span class="avatar">AC</span>
+            <span>Alex Carter</span>
+          </div>
+        </header>
+
+        <section class="catalog-panel">
+          <div class="panel-head">
+            <h1>All Agents <span id="visibleCount">(20)</span></h1>
+            <select id="sortSelect" aria-label="Sort services">
+              <option value="popular">Sort: Popular</option>
+              <option value="price">Sort: Price</option>
+              <option value="sla">Sort: SLA</option>
+            </select>
+          </div>
+
+          <div class="filters">
+            <input id="tableSearch" type="search" placeholder="Search agents..." />
+            <select id="categoryFilter" aria-label="Category filter">
+              <option value="all">Category: All</option>
+            </select>
+            <select id="capabilityFilter" aria-label="Capability filter">
+              <option value="all">Capability: All</option>
+            </select>
+            <select id="providerFilter" aria-label="Provider filter">
+              <option value="all">Provider: All</option>
+            </select>
+            <button class="filter-btn">Filters</button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Agent</th>
+                  <th>Category</th>
+                  <th>Capability</th>
+                  <th>Providers</th>
+                  <th>Starting Price</th>
+                  <th>SLA</th>
+                </tr>
+              </thead>
+              <tbody id="serviceRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <aside class="workroom" aria-label="Selected service workroom">
+        <div class="workroom-head">
+          <div class="section-label">Workroom</div>
+          <button class="link-btn" id="clearSelection">Clear</button>
+        </div>
+
+        <section class="selected-service">
+          <div id="selectedIcon" class="service-icon">✦</div>
+          <div>
+            <h2 id="selectedName">Select an agent</h2>
+            <p id="selectedSub">Choose a service to generate a quote.</p>
+          </div>
+        </section>
+
+        <section class="brief-box">
+          <div class="section-row">
+            <div class="section-label">Brief</div>
+            <button class="link-btn" id="autofillBrief">Autofill</button>
+          </div>
+          <div id="briefFields" class="brief-fields"></div>
+        </section>
+
+        <section class="packages">
+          <div class="section-label">Package & Quote</div>
+          <label class="package-row">
+            <input type="radio" name="package" value="basic" />
+            <span>
+              <strong>Basic</strong>
+              <small>single output, one revision</small>
+            </span>
+            <b id="basicPrice">$0</b>
+          </label>
+          <label class="package-row active">
+            <input type="radio" name="package" value="standard" checked />
+            <span>
+              <strong>Standard</strong>
+              <small>complete delivery, two revisions</small>
+            </span>
+            <b id="standardPrice">$0</b>
+          </label>
+          <label class="package-row">
+            <input type="radio" name="package" value="premium" />
+            <span>
+              <strong>Premium</strong>
+              <small>variants, QA notes, priority</small>
+            </span>
+            <b id="premiumPrice">$0</b>
+          </label>
+        </section>
+
+        <section class="summary">
+          <div class="section-label">Price & SLA Summary</div>
+          <div class="money-row"><span>Package</span><strong id="summaryPackage">Standard</strong></div>
+          <div class="money-row"><span>Provider Fees</span><strong>$0.00</strong></div>
+          <div class="money-row"><span>Platform Fee (5%)</span><strong id="platformFee">$0.00</strong></div>
+          <div class="money-row teal"><span>Escrow Hold</span><strong id="escrowHold">$0.00</strong></div>
+          <div class="money-row"><span>Estimated Delivery</span><strong id="summarySla">24h</strong></div>
+        </section>
+
+        <section class="providers">
+          <div class="section-label">Provider Dry-Run Status</div>
+          <div id="providerList"></div>
+        </section>
+
+        <button id="checkoutBtn" class="checkout" disabled>
+          <span>▣ Checkout with Escrow</span>
+          <strong id="checkoutPrice">$0.00</strong>
+        </button>
+        <p class="fine-print">Funds held securely. Released on delivery.</p>
+      </aside>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

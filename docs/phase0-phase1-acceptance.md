@@ -31,6 +31,7 @@ catalog validation.
 | Provider/API requirements are executable without keys | `agent_fiverr/providers.py` and `docs/provider-runtime.md` | Provider runtime reports missing credentials, blocks real calls without keys, and supports dry-run traces |
 | Automatic QA and human review loop has executable baseline | `agent_fiverr/qa.py` and `docs/qa-runtime.md` | QA runtime blocks incomplete deliverables, escalates high-risk work, and evaluates all 200 Phase 2 sample orders |
 | Marketplace alpha kernel exists | `agent_fiverr/marketplace.py` and `docs/marketplace-runtime.md` | Unit tests cover service discovery, quote readiness, package price/SLA, order creation, mock escrow hold, and CLI buyer flow |
+| Buyer-facing marketplace/workroom alpha UI exists | `web/` and `docs/web-alpha.md` | Static tests cover required regions and 20 MVP services; headless Chrome screenshots verify desktop and mobile rendering |
 
 ## Current Validator
 

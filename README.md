@@ -19,6 +19,8 @@ marketplace.
 - `agent_fiverr/qa.py` - automatic QA evaluator and human review queue.
 - `agent_fiverr/marketplace.py` - local marketplace orchestrator for discovery,
   quotes, quote acceptance, and mock escrow holds.
+- `web/` - static buyer-facing alpha UI for catalog, quote, workroom, provider
+  status, and mock escrow checkout.
 - `services/<service>/` - generated workspace spec for each MVP service.
 - `templates/agent-service-template/` - reusable service workspace template.
 - `schemas/` - JSON schemas for service specs and workspace manifests.
@@ -40,6 +42,7 @@ python3 scripts/run_phase2_simulation.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 -m agent_fiverr.cli discover --category Data
 python3 -m agent_fiverr.cli quote data-cleaning-formatting '{"dataset_file":"contacts.csv","target_schema":"email,name","dedupe_rules":"email","missing_value_rules":"blank","output_format":"csv"}' --package standard
+python3 -m http.server 8127 --directory web
 ```
 
 ## Credential Policy
