@@ -36,6 +36,7 @@ Implement the Fiverr-agentification plan until acceptance standards are met.
 | Marketplace Alpha 100-order metrics | `agent_fiverr/alpha_metrics.py`; `scripts/run_alpha_metrics.py` | Simulated gate only |
 | Cost below 20%-30% of service price | `agent_fiverr/costs.py`; `scripts/run_cost_gate.py`; `docs/cost-gate.md` | Simulated 30% cost-ratio gate implemented for 20 MVP services |
 | Long-tail 500+ specs and 100+ saleable candidates | `agent_fiverr/long_tail.py`; `data/long-tail-services.generated.json` | Generated draft implemented |
+| Repeatable local/CI verification | `scripts/run_all_gates.py`; `.github/workflows/verify.yml`; `docs/verification.md` | One-command local gate and GitHub Actions workflow implemented |
 
 ## Fresh Verification Commands
 
@@ -49,6 +50,7 @@ python3 scripts/generate_long_tail_catalog.py
 python3 scripts/generate_eval_fixtures.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 git diff --check
+python3 scripts/run_all_gates.py
 ```
 
 Expected current evidence:
@@ -102,10 +104,12 @@ Services: 20
 Fixtures per service: 5
 Gate: PASS
 
-Ran 66 tests
+Ran 68 tests
 OK
 
 git diff --check exits 0 with no output.
+
+All local gates passed.
 ```
 
 ## Not Actually Complete

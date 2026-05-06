@@ -60,6 +60,7 @@ python3 scripts/run_alpha_metrics.py
 python3 scripts/run_cost_gate.py
 python3 scripts/generate_long_tail_catalog.py
 python3 scripts/generate_eval_fixtures.py
+python3 scripts/run_all_gates.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 -m unittest discover -s tests -p 'test_credentials.py'
 python3 -m agent_fiverr.cli discover --category Data

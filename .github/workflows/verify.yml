@@ -1,0 +1,23 @@
+name: Verify
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - codex/phase0-service-foundation
+
+jobs:
+  local-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run local acceptance gates
+        run: python3 scripts/run_all_gates.py

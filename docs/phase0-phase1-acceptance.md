@@ -39,6 +39,7 @@ catalog validation.
 | Marketplace alpha metrics thresholds are executable | `agent_fiverr/alpha_metrics.py` and `docs/alpha-metrics.md` | `scripts/run_alpha_metrics.py` simulates 100 orders and checks cancellation, refund, response, and delivery-speed gates |
 | Platform cost threshold is executable | `agent_fiverr/costs.py` and `docs/cost-gate.md` | `scripts/run_cost_gate.py` checks 20 MVP services against a 30% cost-ratio threshold |
 | Phase 4 long-tail expansion gate is executable | `agent_fiverr/long_tail.py`, `data/long-tail-services.generated.json`, and `docs/long-tail-catalog.md` | Generator produces 800 service specs, 160 saleable candidates, and minimum eval pack references for every service |
+| All local gates are repeatable in one command and CI | `scripts/run_all_gates.py`, `.github/workflows/verify.yml`, and `docs/verification.md` | One runner executes all catalog, simulation, fixture, cost, unit, and whitespace gates |
 
 ## Current Validator
 
@@ -52,6 +53,7 @@ python3 scripts/run_alpha_metrics.py
 python3 scripts/run_cost_gate.py
 python3 scripts/generate_long_tail_catalog.py
 python3 scripts/generate_eval_fixtures.py
+python3 scripts/run_all_gates.py
 ```
 
 Expected output:
