@@ -10,6 +10,10 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from agent_fiverr.providers import adapter_for
+
 REQUIRED_SERVICE_FILES = {
     "SERVICE.md",
     "BRIEF_SCHEMA.json",
@@ -126,6 +130,15 @@ def validate_template() -> None:
     assert_true(manifest["lifecycle"] == REQUIRED_LIFECYCLE, "template lifecycle mismatch")
 
 
+def validate_provider_adapters(provider_records: list[dict]) -> None:
+    for provider in provider_records:
+        adapter = adapter_for(provider["id"])
+        assert_true(adapter.provider_id == provider["id"], f"{provider['id']} adapter id mismatch")
+        assert_true(bool(adapter.actions), f"{provider['id']} adapter has no actions")
+        assert_true(bool(adapter.scopes), f"{provider['id']} adapter has no scopes")
+        assert_true(bool(adapter.artifact_types), f"{provider['id']} adapter has no artifact types")
+
+
 def validate_pilot_samples(services: list[dict]) -> None:
     samples = load_json(ROOT / "data" / "pilot-sample-orders.json")
     service_slugs = {service["slug"] for service in services}
@@ -176,6 +189,7 @@ def main() -> int:
             validate_service_record(service, categories, archetypes, providers)
             validate_generated_workspace(service, provider_levels)
         validate_template()
+        validate_provider_adapters(provider_records)
         validate_pilot_samples(services)
     except AssertionError as exc:
         errors.append(str(exc))
@@ -189,6 +203,7 @@ def main() -> int:
     print(f"Top-level categories: {len(categories)}")
     print(f"MVP services: {len(services)}")
     print(f"Providers: {len(providers)}")
+    print(f"Provider adapters: {len(providers)}")
     print("Pilot sample orders: 30")
     print(f"Required files per service: {len(REQUIRED_SERVICE_FILES)}")
     return 0

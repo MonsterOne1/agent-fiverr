@@ -18,7 +18,7 @@ Implement the Fiverr-agentification plan until acceptance standards are met.
 | Each MVP has deliverable schema | `services/<slug>/DELIVERABLE_SCHEMA.json` | Implemented |
 | Each MVP has QA rubric | `services/<slug>/QA_RUBRIC.md` | Implemented |
 | Each MVP has policy | `services/<slug>/POLICY.md` | Implemented |
-| Capture API needs, including Seedance, Banana, GPT Image 2, Suno, ElevenLabs | `data/api-provider-matrix.json`; `agent_fiverr/providers.py` | Implemented as metadata and dry-run gates |
+| Capture API needs, including Seedance, Banana, GPT Image 2, Suno, ElevenLabs | `data/api-provider-matrix.json`; `agent_fiverr/providers.py` | Implemented as metadata, adapter scaffolds, dry-run gates, and call plans |
 | Agent workspace template | `templates/agent-service-template/` | Implemented |
 | Order lifecycle/state machine | `agent_fiverr/order.py`; `tests/test_order_runtime.py` | Implemented locally |
 | Tool permissions and audit logs | `agent_fiverr/order.py`; `agent_fiverr/providers.py` | Implemented locally |
@@ -51,6 +51,7 @@ Catalog validation passed.
 Top-level categories: 14
 MVP services: 20
 Providers: 14
+Provider adapters: 14
 Pilot sample orders: 30
 Required files per service: 11
 
@@ -93,7 +94,8 @@ external real-world evidence or credentials that are not present in this repo.
 
 Missing or weakly verified requirements:
 
-- Real provider API adapters and keys are not configured.
+- Real provider API adapters are scaffolded, but provider keys are not
+  configured and live network calls are not enabled.
 - Generated media assets are not produced by Seedance, Banana, GPT Image 2,
   Suno, ElevenLabs, or other providers yet.
 - Payments and escrow are mocked, not integrated with a real payment provider.

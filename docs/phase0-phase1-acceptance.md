@@ -28,7 +28,7 @@ catalog validation.
 | Seed first 3 pilot agents with 30 simulated orders | `data/pilot-sample-orders.json` | Validator checks exactly 30 samples, 10 each for SEO audit, data cleaning, and presentation deck |
 | Run first 3 pilot agents through local order lifecycle | `scripts/run_pilot_simulation.py` | Simulation creates 30 temporary workroom orders, advances them to delivery, and adds QA-passing deliverables |
 | Phase 2 sample baseline: 20 MVP agents each have at least 10 sample orders | `agent_fiverr/phase2_samples.py` | `scripts/run_phase2_simulation.py` generates 200 orders, 10 per MVP service, advances all to delivery, and emits provider dry-run traces |
-| Provider/API requirements are executable without keys | `agent_fiverr/providers.py` and `docs/provider-runtime.md` | Provider runtime reports missing credentials, blocks real calls without keys, and supports dry-run traces |
+| Provider/API requirements are executable without keys | `agent_fiverr/providers.py` and `docs/provider-runtime.md` | Provider runtime reports missing credentials, validates provider actions and request fields, emits call plans, blocks real calls without keys, and supports dry-run traces |
 | Automatic QA and human review loop has executable baseline | `agent_fiverr/qa.py` and `docs/qa-runtime.md` | QA runtime blocks incomplete deliverables, escalates high-risk work, and evaluates all 200 Phase 2 sample orders |
 | Marketplace alpha kernel exists | `agent_fiverr/marketplace.py` and `docs/marketplace-runtime.md` | Unit tests cover service discovery, quote readiness, package price/SLA, order creation, mock escrow hold, and CLI buyer flow |
 | Buyer-facing marketplace/workroom alpha UI exists | `web/` and `docs/web-alpha.md` | Static tests cover required regions and 20 MVP services; headless Chrome screenshots verify desktop and mobile rendering |
@@ -54,6 +54,7 @@ Catalog validation passed.
 Top-level categories: 14
 MVP services: 20
 Providers: 14
+Provider adapters: 14
 Pilot sample orders: 30
 Required files per service: 11
 
