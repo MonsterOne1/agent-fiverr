@@ -1,0 +1,41 @@
+{
+  "service": "resume-linkedin-profile",
+  "required_files": [
+    "SERVICE.md",
+    "BRIEF_SCHEMA.json",
+    "DELIVERABLE_SCHEMA.json",
+    "QUOTE_RULES.md",
+    "QA_RUBRIC.md",
+    "EVALS.md",
+    "TOOLS.md",
+    "POLICY.md",
+    "REVISION.md",
+    "HANDOFF.md",
+    "WORKSPACE_MANIFEST.json"
+  ],
+  "lifecycle": [
+    "intake",
+    "scope_check",
+    "quote",
+    "plan",
+    "work",
+    "qa",
+    "delivery",
+    "revision",
+    "close",
+    "memory"
+  ],
+  "quality_gates": [
+    "no_invented_experience",
+    "metrics_preserved_or_marked_as_placeholders",
+    "ats_keywords_relevant"
+  ],
+  "authorization_gates": [
+    "external_publishing",
+    "account_mutation",
+    "ad_spend",
+    "production_deploy",
+    "payment_action",
+    "outbound_message_send"
+  ]
+}

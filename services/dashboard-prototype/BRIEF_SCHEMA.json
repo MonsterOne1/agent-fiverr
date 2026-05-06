@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dashboard Prototype Agent Brief",
+  "type": "object",
+  "required": [
+    "data_source",
+    "audience",
+    "key_metrics",
+    "filters",
+    "refresh_needs",
+    "tool_preference"
+  ],
+  "properties": {
+    "data_source": {
+      "type": "string",
+      "title": "Data Source",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "string",
+      "title": "Audience",
+      "minLength": 1
+    },
+    "key_metrics": {
+      "type": "string",
+      "title": "Key Metrics",
+      "minLength": 1
+    },
+    "filters": {
+      "type": "string",
+      "title": "Filters",
+      "minLength": 1
+    },
+    "refresh_needs": {
+      "type": "string",
+      "title": "Refresh Needs",
+      "minLength": 1
+    },
+    "tool_preference": {
+      "type": "string",
+      "title": "Tool Preference",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Email Marketing Copy Agent Brief",
+  "type": "object",
+  "required": [
+    "audience",
+    "offer",
+    "funnel_stage",
+    "brand_voice",
+    "compliance_constraints",
+    "cta"
+  ],
+  "properties": {
+    "audience": {
+      "type": "string",
+      "title": "Audience",
+      "minLength": 1
+    },
+    "offer": {
+      "type": "string",
+      "title": "Offer",
+      "minLength": 1
+    },
+    "funnel_stage": {
+      "type": "string",
+      "title": "Funnel Stage",
+      "minLength": 1
+    },
+    "brand_voice": {
+      "type": "string",
+      "title": "Brand Voice",
+      "minLength": 1
+    },
+    "compliance_constraints": {
+      "type": "string",
+      "title": "Compliance Constraints",
+      "minLength": 1
+    },
+    "cta": {
+      "type": "string",
+      "title": "Cta",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

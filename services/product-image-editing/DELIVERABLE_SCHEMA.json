@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Product Image Editing Agent Deliverable",
+  "type": "object",
+  "required": [
+    "edited_assets",
+    "variants",
+    "prompt_log",
+    "format_report",
+    "usage_notes"
+  ],
+  "properties": {
+    "edited_assets": {
+      "type": "string",
+      "title": "Edited Assets",
+      "minLength": 1
+    },
+    "variants": {
+      "type": "string",
+      "title": "Variants",
+      "minLength": 1
+    },
+    "prompt_log": {
+      "type": "string",
+      "title": "Prompt Log",
+      "minLength": 1
+    },
+    "format_report": {
+      "type": "string",
+      "title": "Format Report",
+      "minLength": 1
+    },
+    "usage_notes": {
+      "type": "string",
+      "title": "Usage Notes",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

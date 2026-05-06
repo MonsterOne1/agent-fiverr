@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Presentation / Pitch Deck Agent Brief",
+  "type": "object",
+  "required": [
+    "deck_goal",
+    "audience",
+    "source_materials",
+    "brand_assets",
+    "slide_count",
+    "format"
+  ],
+  "properties": {
+    "deck_goal": {
+      "type": "string",
+      "title": "Deck Goal",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "string",
+      "title": "Audience",
+      "minLength": 1
+    },
+    "source_materials": {
+      "type": "string",
+      "title": "Source Materials",
+      "minLength": 1
+    },
+    "brand_assets": {
+      "type": "string",
+      "title": "Brand Assets",
+      "minLength": 1
+    },
+    "slide_count": {
+      "type": "string",
+      "title": "Slide Count",
+      "minLength": 1
+    },
+    "format": {
+      "type": "string",
+      "title": "Format",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

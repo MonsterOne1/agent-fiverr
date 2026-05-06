@@ -1,0 +1,123 @@
+{
+  "version": "2026-05-06",
+  "credential_policy": {
+    "storage": "never_commit_keys",
+    "expected_inputs": [".env", "secret_manager", "per_workspace_provider_auth"],
+    "rule": "Provider names and required scopes are committed; API keys are supplied later by the owner."
+  },
+  "providers": [
+    {
+      "id": "openai_responses",
+      "name": "OpenAI Responses API",
+      "task_types": ["writing", "translation", "coding", "research", "analysis", "planning", "qa"],
+      "required_for": ["all_service_agents"],
+      "credential_env": "OPENAI_API_KEY",
+      "side_effect_level": "none"
+    },
+    {
+      "id": "gpt_image_2",
+      "name": "GPT Image 2",
+      "task_types": ["image_generation", "image_editing", "poster_design", "ad_creative"],
+      "required_for": ["logo-concept-brand-kit", "product-image-editing"],
+      "credential_env": "OPENAI_API_KEY",
+      "side_effect_level": "asset_generation"
+    },
+    {
+      "id": "banana",
+      "name": "Banana image generation/editing",
+      "task_types": ["poster_design", "image_editing", "social_creative"],
+      "required_for": ["logo-concept-brand-kit", "product-image-editing", "social-media-calendar"],
+      "credential_env": "BANANA_API_KEY",
+      "side_effect_level": "asset_generation"
+    },
+    {
+      "id": "seedance",
+      "name": "Seedance video generation",
+      "task_types": ["video_generation", "video_variation", "storyboard_to_video"],
+      "required_for": ["video-caption-repurpose"],
+      "credential_env": "SEEDANCE_API_KEY",
+      "side_effect_level": "asset_generation"
+    },
+    {
+      "id": "kling",
+      "name": "Kling video generation",
+      "task_types": ["video_generation", "image_to_video"],
+      "required_for": ["video-caption-repurpose"],
+      "credential_env": "KLING_API_KEY",
+      "side_effect_level": "asset_generation"
+    },
+    {
+      "id": "renoise",
+      "name": "Renoise video production toolkit",
+      "task_types": ["video_generation", "video_download", "creative_direction"],
+      "required_for": ["video-caption-repurpose"],
+      "credential_env": "RENOISE_API_KEY",
+      "side_effect_level": "asset_generation"
+    },
+    {
+      "id": "suno",
+      "name": "Suno music generation",
+      "task_types": ["music_generation", "jingle", "background_music"],
+      "required_for": ["podcast-show-notes-audio-cleanup"],
+      "credential_env": "SUNO_API_KEY",
+      "side_effect_level": "asset_generation"
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs voiceover and TTS",
+      "task_types": ["voiceover", "tts", "dubbing"],
+      "required_for": ["podcast-show-notes-audio-cleanup", "video-caption-repurpose"],
+      "credential_env": "ELEVENLABS_API_KEY",
+      "side_effect_level": "asset_generation"
+    },
+    {
+      "id": "browser_search",
+      "name": "Browser/search provider",
+      "task_types": ["seo_audit", "market_research", "competitor_research"],
+      "required_for": ["seo-geo-audit", "market-research-brief"],
+      "credential_env": null,
+      "side_effect_level": "read_only_network"
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "task_types": ["coding", "pull_request", "repo_analysis"],
+      "required_for": ["website-bug-fix", "api-integration-automation", "ai-chatbot-agent-builder"],
+      "credential_env": "GITHUB_TOKEN",
+      "side_effect_level": "requires_explicit_authorization"
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "task_types": ["deploy_preview", "frontend_hosting"],
+      "required_for": ["website-bug-fix", "landing-page-copy-wireframe"],
+      "credential_env": "VERCEL_TOKEN",
+      "side_effect_level": "requires_explicit_authorization"
+    },
+    {
+      "id": "wordpress",
+      "name": "WordPress",
+      "task_types": ["cms_editing", "site_small_tasks"],
+      "required_for": ["wordpress-shopify-small-task"],
+      "credential_env": "WORDPRESS_API_TOKEN",
+      "side_effect_level": "requires_explicit_authorization"
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "task_types": ["store_setup", "theme_editing", "product_ops"],
+      "required_for": ["wordpress-shopify-small-task"],
+      "credential_env": "SHOPIFY_ACCESS_TOKEN",
+      "side_effect_level": "requires_explicit_authorization"
+    },
+    {
+      "id": "google_ads",
+      "name": "Google Ads",
+      "task_types": ["paid_ads", "keyword_planning"],
+      "required_for": ["seo-geo-audit", "email-marketing-copy"],
+      "credential_env": "GOOGLE_ADS_DEVELOPER_TOKEN",
+      "side_effect_level": "requires_explicit_authorization"
+    }
+  ]
+}
+

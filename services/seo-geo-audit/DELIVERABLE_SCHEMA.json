@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SEO / GEO Audit Agent Deliverable",
+  "type": "object",
+  "required": [
+    "executive_summary",
+    "technical_findings",
+    "content_findings",
+    "geo_findings",
+    "backlog",
+    "evidence_links"
+  ],
+  "properties": {
+    "executive_summary": {
+      "type": "string",
+      "title": "Executive Summary",
+      "minLength": 1
+    },
+    "technical_findings": {
+      "type": "string",
+      "title": "Technical Findings",
+      "minLength": 1
+    },
+    "content_findings": {
+      "type": "string",
+      "title": "Content Findings",
+      "minLength": 1
+    },
+    "geo_findings": {
+      "type": "string",
+      "title": "Geo Findings",
+      "minLength": 1
+    },
+    "backlog": {
+      "type": "string",
+      "title": "Backlog",
+      "minLength": 1
+    },
+    "evidence_links": {
+      "type": "string",
+      "title": "Evidence Links",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Logo Concept / Brand Kit Draft Agent Brief",
+  "type": "object",
+  "required": [
+    "brand_name",
+    "industry",
+    "audience",
+    "style_references",
+    "colors",
+    "usage_context",
+    "avoid_list"
+  ],
+  "properties": {
+    "brand_name": {
+      "type": "string",
+      "title": "Brand Name",
+      "minLength": 1
+    },
+    "industry": {
+      "type": "string",
+      "title": "Industry",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "string",
+      "title": "Audience",
+      "minLength": 1
+    },
+    "style_references": {
+      "type": "string",
+      "title": "Style References",
+      "minLength": 1
+    },
+    "colors": {
+      "type": "string",
+      "title": "Colors",
+      "minLength": 1
+    },
+    "usage_context": {
+      "type": "string",
+      "title": "Usage Context",
+      "minLength": 1
+    },
+    "avoid_list": {
+      "type": "string",
+      "title": "Avoid List",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "{{SERVICE_NAME}} Deliverable",
+  "type": "object",
+  "required": [
+    "summary",
+    "deliverables",
+    "qa_notes"
+  ],
+  "properties": {
+    "summary": {
+      "type": "string",
+      "title": "Summary",
+      "minLength": 1
+    },
+    "deliverables": {
+      "type": "string",
+      "title": "Deliverables",
+      "minLength": 1
+    },
+    "qa_notes": {
+      "type": "string",
+      "title": "Qa Notes",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

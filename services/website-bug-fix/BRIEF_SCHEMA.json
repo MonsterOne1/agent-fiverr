@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Website Bug Fix Agent Brief",
+  "type": "object",
+  "required": [
+    "repo_url",
+    "bug_description",
+    "repro_steps",
+    "expected_behavior",
+    "environment",
+    "access_scope"
+  ],
+  "properties": {
+    "repo_url": {
+      "type": "string",
+      "title": "Repo Url",
+      "minLength": 1
+    },
+    "bug_description": {
+      "type": "string",
+      "title": "Bug Description",
+      "minLength": 1
+    },
+    "repro_steps": {
+      "type": "string",
+      "title": "Repro Steps",
+      "minLength": 1
+    },
+    "expected_behavior": {
+      "type": "string",
+      "title": "Expected Behavior",
+      "minLength": 1
+    },
+    "environment": {
+      "type": "string",
+      "title": "Environment",
+      "minLength": 1
+    },
+    "access_scope": {
+      "type": "string",
+      "title": "Access Scope",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

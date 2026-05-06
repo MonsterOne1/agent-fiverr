@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Podcast Show Notes + Audio Cleanup Agent Deliverable",
+  "type": "object",
+  "required": [
+    "show_notes",
+    "chapters",
+    "quotes",
+    "audio_report",
+    "asset_manifest"
+  ],
+  "properties": {
+    "show_notes": {
+      "type": "string",
+      "title": "Show Notes",
+      "minLength": 1
+    },
+    "chapters": {
+      "type": "string",
+      "title": "Chapters",
+      "minLength": 1
+    },
+    "quotes": {
+      "type": "string",
+      "title": "Quotes",
+      "minLength": 1
+    },
+    "audio_report": {
+      "type": "string",
+      "title": "Audio Report",
+      "minLength": 1
+    },
+    "asset_manifest": {
+      "type": "string",
+      "title": "Asset Manifest",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

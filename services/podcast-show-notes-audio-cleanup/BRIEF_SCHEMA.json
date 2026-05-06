@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Podcast Show Notes + Audio Cleanup Agent Brief",
+  "type": "object",
+  "required": [
+    "source_audio",
+    "episode_topic",
+    "speaker_names",
+    "target_platforms",
+    "cleanup_goals",
+    "music_needs"
+  ],
+  "properties": {
+    "source_audio": {
+      "type": "string",
+      "title": "Source Audio",
+      "minLength": 1
+    },
+    "episode_topic": {
+      "type": "string",
+      "title": "Episode Topic",
+      "minLength": 1
+    },
+    "speaker_names": {
+      "type": "string",
+      "title": "Speaker Names",
+      "minLength": 1
+    },
+    "target_platforms": {
+      "type": "string",
+      "title": "Target Platforms",
+      "minLength": 1
+    },
+    "cleanup_goals": {
+      "type": "string",
+      "title": "Cleanup Goals",
+      "minLength": 1
+    },
+    "music_needs": {
+      "type": "string",
+      "title": "Music Needs",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

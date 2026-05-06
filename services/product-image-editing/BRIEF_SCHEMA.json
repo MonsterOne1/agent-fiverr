@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Product Image Editing Agent Brief",
+  "type": "object",
+  "required": [
+    "source_images",
+    "edit_goals",
+    "background_style",
+    "dimensions",
+    "marketplace_requirements",
+    "reference_images"
+  ],
+  "properties": {
+    "source_images": {
+      "type": "string",
+      "title": "Source Images",
+      "minLength": 1
+    },
+    "edit_goals": {
+      "type": "string",
+      "title": "Edit Goals",
+      "minLength": 1
+    },
+    "background_style": {
+      "type": "string",
+      "title": "Background Style",
+      "minLength": 1
+    },
+    "dimensions": {
+      "type": "string",
+      "title": "Dimensions",
+      "minLength": 1
+    },
+    "marketplace_requirements": {
+      "type": "string",
+      "title": "Marketplace Requirements",
+      "minLength": 1
+    },
+    "reference_images": {
+      "type": "string",
+      "title": "Reference Images",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Website Bug Fix Agent Deliverable",
+  "type": "object",
+  "required": [
+    "root_cause",
+    "patch_summary",
+    "tests_run",
+    "risk_notes",
+    "deployment_notes"
+  ],
+  "properties": {
+    "root_cause": {
+      "type": "string",
+      "title": "Root Cause",
+      "minLength": 1
+    },
+    "patch_summary": {
+      "type": "string",
+      "title": "Patch Summary",
+      "minLength": 1
+    },
+    "tests_run": {
+      "type": "string",
+      "title": "Tests Run",
+      "minLength": 1
+    },
+    "risk_notes": {
+      "type": "string",
+      "title": "Risk Notes",
+      "minLength": 1
+    },
+    "deployment_notes": {
+      "type": "string",
+      "title": "Deployment Notes",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

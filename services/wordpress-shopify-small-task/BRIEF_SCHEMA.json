@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WordPress / Shopify Small Task Agent Brief",
+  "type": "object",
+  "required": [
+    "platform",
+    "store_url",
+    "task_description",
+    "theme_or_plugin",
+    "access_scope",
+    "rollback_preference"
+  ],
+  "properties": {
+    "platform": {
+      "type": "string",
+      "title": "Platform",
+      "minLength": 1
+    },
+    "store_url": {
+      "type": "string",
+      "title": "Store Url",
+      "minLength": 1
+    },
+    "task_description": {
+      "type": "string",
+      "title": "Task Description",
+      "minLength": 1
+    },
+    "theme_or_plugin": {
+      "type": "string",
+      "title": "Theme Or Plugin",
+      "minLength": 1
+    },
+    "access_scope": {
+      "type": "string",
+      "title": "Access Scope",
+      "minLength": 1
+    },
+    "rollback_preference": {
+      "type": "string",
+      "title": "Rollback Preference",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

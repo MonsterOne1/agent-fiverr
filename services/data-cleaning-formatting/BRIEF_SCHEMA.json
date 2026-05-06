@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data Cleaning & Formatting Agent Brief",
+  "type": "object",
+  "required": [
+    "dataset_file",
+    "target_schema",
+    "dedupe_rules",
+    "missing_value_rules",
+    "output_format"
+  ],
+  "properties": {
+    "dataset_file": {
+      "type": "string",
+      "title": "Dataset File",
+      "minLength": 1
+    },
+    "target_schema": {
+      "type": "string",
+      "title": "Target Schema",
+      "minLength": 1
+    },
+    "dedupe_rules": {
+      "type": "string",
+      "title": "Dedupe Rules",
+      "minLength": 1
+    },
+    "missing_value_rules": {
+      "type": "string",
+      "title": "Missing Value Rules",
+      "minLength": 1
+    },
+    "output_format": {
+      "type": "string",
+      "title": "Output Format",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Landing Page Copy + Wireframe Agent Brief",
+  "type": "object",
+  "required": [
+    "product",
+    "audience",
+    "offer",
+    "proof_points",
+    "competitors",
+    "brand_assets",
+    "conversion_goal"
+  ],
+  "properties": {
+    "product": {
+      "type": "string",
+      "title": "Product",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "string",
+      "title": "Audience",
+      "minLength": 1
+    },
+    "offer": {
+      "type": "string",
+      "title": "Offer",
+      "minLength": 1
+    },
+    "proof_points": {
+      "type": "string",
+      "title": "Proof Points",
+      "minLength": 1
+    },
+    "competitors": {
+      "type": "string",
+      "title": "Competitors",
+      "minLength": 1
+    },
+    "brand_assets": {
+      "type": "string",
+      "title": "Brand Assets",
+      "minLength": 1
+    },
+    "conversion_goal": {
+      "type": "string",
+      "title": "Conversion Goal",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

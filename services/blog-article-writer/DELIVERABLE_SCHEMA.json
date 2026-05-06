@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Blog & Article Writer Agent Deliverable",
+  "type": "object",
+  "required": [
+    "outline",
+    "draft",
+    "citations",
+    "seo_metadata",
+    "revision_notes"
+  ],
+  "properties": {
+    "outline": {
+      "type": "string",
+      "title": "Outline",
+      "minLength": 1
+    },
+    "draft": {
+      "type": "string",
+      "title": "Draft",
+      "minLength": 1
+    },
+    "citations": {
+      "type": "string",
+      "title": "Citations",
+      "minLength": 1
+    },
+    "seo_metadata": {
+      "type": "string",
+      "title": "Seo Metadata",
+      "minLength": 1
+    },
+    "revision_notes": {
+      "type": "string",
+      "title": "Revision Notes",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

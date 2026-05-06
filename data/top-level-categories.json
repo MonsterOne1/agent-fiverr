@@ -1,0 +1,87 @@
+[
+  {
+    "category": "Graphics & Design",
+    "coverage_strategy": "agent_drafts_with_brand_kit_and_human_review_for_final_identity_work",
+    "default_automation_level": "L4",
+    "default_risk_level": "medium"
+  },
+  {
+    "category": "Programming & Tech",
+    "coverage_strategy": "coding_agent_with_repo_sandbox_tests_and_deploy_gate",
+    "default_automation_level": "L3",
+    "default_risk_level": "medium"
+  },
+  {
+    "category": "Digital Marketing",
+    "coverage_strategy": "audit_and_campaign_draft_agent_with_explicit_authorization_for_publishing_or_ad_spend",
+    "default_automation_level": "L3",
+    "default_risk_level": "medium"
+  },
+  {
+    "category": "Video & Animation",
+    "coverage_strategy": "storyboard_generation_render_pipeline_and_media_qa_with_provider_api_keys",
+    "default_automation_level": "L4",
+    "default_risk_level": "medium"
+  },
+  {
+    "category": "Writing & Translation",
+    "coverage_strategy": "llm_drafting_editing_localization_and_style_qa",
+    "default_automation_level": "L5",
+    "default_risk_level": "low"
+  },
+  {
+    "category": "Music & Audio",
+    "coverage_strategy": "audio_generation_editing_transcription_tts_and_rights_tracking",
+    "default_automation_level": "L4",
+    "default_risk_level": "medium"
+  },
+  {
+    "category": "Business",
+    "coverage_strategy": "research_modeling_docs_and_pm_artifacts_with_expert_review_when_claims_are_consequential",
+    "default_automation_level": "L4",
+    "default_risk_level": "medium"
+  },
+  {
+    "category": "Finance",
+    "coverage_strategy": "drafts_models_reconciliations_and_analysis_only_with_mandatory_human_review_for_regulated_advice",
+    "default_automation_level": "L2",
+    "default_risk_level": "high"
+  },
+  {
+    "category": "AI Services",
+    "coverage_strategy": "agent_builder_prompt_engineering_chatbots_evals_and_integration_workflows",
+    "default_automation_level": "L3",
+    "default_risk_level": "medium"
+  },
+  {
+    "category": "Personal Growth",
+    "coverage_strategy": "coaching_curriculum_and_practice_artifacts_with_health_legal_and_psychological_boundaries",
+    "default_automation_level": "L2",
+    "default_risk_level": "high"
+  },
+  {
+    "category": "Consulting",
+    "coverage_strategy": "structured_research_diagnosis_options_and_expert_handoff_for_decision_grade_work",
+    "default_automation_level": "L2",
+    "default_risk_level": "high"
+  },
+  {
+    "category": "Data",
+    "coverage_strategy": "structured_etl_analysis_dashboard_and_ml_workflows_with_dataset_governance",
+    "default_automation_level": "L4",
+    "default_risk_level": "medium"
+  },
+  {
+    "category": "Photography",
+    "coverage_strategy": "agent_broker_for_brief_shot_list_vendor_coordination_retouching_and_acceptance",
+    "default_automation_level": "L1",
+    "default_risk_level": "medium"
+  },
+  {
+    "category": "End-to-End Projects",
+    "coverage_strategy": "orchestrator_agent_with_multi_agent_fulfillment_graph_pm_qa_and_human_escalation",
+    "default_automation_level": "L3",
+    "default_risk_level": "medium"
+  }
+]
+

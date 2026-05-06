@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Landing Page Copy + Wireframe Agent Deliverable",
+  "type": "object",
+  "required": [
+    "hero",
+    "sections",
+    "cta",
+    "wireframe_notes",
+    "asset_prompts"
+  ],
+  "properties": {
+    "hero": {
+      "type": "string",
+      "title": "Hero",
+      "minLength": 1
+    },
+    "sections": {
+      "type": "string",
+      "title": "Sections",
+      "minLength": 1
+    },
+    "cta": {
+      "type": "string",
+      "title": "Cta",
+      "minLength": 1
+    },
+    "wireframe_notes": {
+      "type": "string",
+      "title": "Wireframe Notes",
+      "minLength": 1
+    },
+    "asset_prompts": {
+      "type": "string",
+      "title": "Asset Prompts",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

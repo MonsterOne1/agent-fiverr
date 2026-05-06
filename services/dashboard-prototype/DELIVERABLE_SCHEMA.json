@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dashboard Prototype Agent Deliverable",
+  "type": "object",
+  "required": [
+    "metric_definitions",
+    "layout",
+    "sample_queries",
+    "prototype",
+    "assumptions"
+  ],
+  "properties": {
+    "metric_definitions": {
+      "type": "string",
+      "title": "Metric Definitions",
+      "minLength": 1
+    },
+    "layout": {
+      "type": "string",
+      "title": "Layout",
+      "minLength": 1
+    },
+    "sample_queries": {
+      "type": "string",
+      "title": "Sample Queries",
+      "minLength": 1
+    },
+    "prototype": {
+      "type": "string",
+      "title": "Prototype",
+      "minLength": 1
+    },
+    "assumptions": {
+      "type": "string",
+      "title": "Assumptions",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

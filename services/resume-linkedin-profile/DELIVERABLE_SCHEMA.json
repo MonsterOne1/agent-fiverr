@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resume / LinkedIn Profile Agent Deliverable",
+  "type": "object",
+  "required": [
+    "resume",
+    "linkedin_headline",
+    "about_section",
+    "experience_bullets",
+    "ats_keywords"
+  ],
+  "properties": {
+    "resume": {
+      "type": "string",
+      "title": "Resume",
+      "minLength": 1
+    },
+    "linkedin_headline": {
+      "type": "string",
+      "title": "Linkedin Headline",
+      "minLength": 1
+    },
+    "about_section": {
+      "type": "string",
+      "title": "About Section",
+      "minLength": 1
+    },
+    "experience_bullets": {
+      "type": "string",
+      "title": "Experience Bullets",
+      "minLength": 1
+    },
+    "ats_keywords": {
+      "type": "string",
+      "title": "Ats Keywords",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

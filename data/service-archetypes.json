@@ -1,0 +1,38 @@
+[
+  {
+    "id": "content_agent",
+    "name": "Content Agent",
+    "fits": ["writing", "translation", "marketing_copy", "show_notes"],
+    "default_files": ["SERVICE.md", "BRIEF_SCHEMA.json", "DELIVERABLE_SCHEMA.json", "QA_RUBRIC.md", "POLICY.md", "QUOTE_RULES.md", "REVISION.md", "TOOLS.md", "HANDOFF.md", "EVALS.md"],
+    "default_quality_gates": ["brief_complete", "style_alignment", "factual_claims_checked", "plagiarism_risk_checked", "schema_valid"]
+  },
+  {
+    "id": "creative_media_agent",
+    "name": "Creative Media Agent",
+    "fits": ["image_design", "video", "audio", "voiceover", "brand_design"],
+    "default_files": ["SERVICE.md", "BRIEF_SCHEMA.json", "DELIVERABLE_SCHEMA.json", "QA_RUBRIC.md", "POLICY.md", "QUOTE_RULES.md", "REVISION.md", "TOOLS.md", "HANDOFF.md", "EVALS.md"],
+    "default_quality_gates": ["brand_constraints_met", "asset_rights_recorded", "format_checked", "human_review_if_identity_or_campaign_critical", "schema_valid"]
+  },
+  {
+    "id": "technical_agent",
+    "name": "Technical Agent",
+    "fits": ["coding", "automation", "chatbot", "website", "api_integration"],
+    "default_files": ["SERVICE.md", "BRIEF_SCHEMA.json", "DELIVERABLE_SCHEMA.json", "QA_RUBRIC.md", "POLICY.md", "QUOTE_RULES.md", "REVISION.md", "TOOLS.md", "HANDOFF.md", "EVALS.md"],
+    "default_quality_gates": ["repo_sandbox_used", "tests_or_repro_steps_run", "diff_reviewed", "deploy_requires_authorization", "schema_valid"]
+  },
+  {
+    "id": "data_agent",
+    "name": "Data Agent",
+    "fits": ["data_cleaning", "scraping", "dashboard", "analytics"],
+    "default_files": ["SERVICE.md", "BRIEF_SCHEMA.json", "DELIVERABLE_SCHEMA.json", "QA_RUBRIC.md", "POLICY.md", "QUOTE_RULES.md", "REVISION.md", "TOOLS.md", "HANDOFF.md", "EVALS.md"],
+    "default_quality_gates": ["input_schema_profiled", "row_counts_reconciled", "privacy_checked", "output_sample_verified", "schema_valid"]
+  },
+  {
+    "id": "consulting_agent",
+    "name": "Consulting Agent",
+    "fits": ["research", "strategy", "finance_draft", "legal_draft", "business_plan"],
+    "default_files": ["SERVICE.md", "BRIEF_SCHEMA.json", "DELIVERABLE_SCHEMA.json", "QA_RUBRIC.md", "POLICY.md", "QUOTE_RULES.md", "REVISION.md", "TOOLS.md", "HANDOFF.md", "EVALS.md"],
+    "default_quality_gates": ["sources_cited", "assumptions_listed", "confidence_labeled", "expert_review_for_regulated_claims", "schema_valid"]
+  }
+]
+

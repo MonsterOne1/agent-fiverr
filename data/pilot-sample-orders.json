@@ -1,0 +1,443 @@
+[
+  {
+    "service_slug": "seo-geo-audit",
+    "sample_id": "seo-001",
+    "brief": {
+      "website_url": "https://example-local-dental.test",
+      "target_market": "Austin, TX",
+      "target_keywords": "emergency dentist, dental implants",
+      "competitors": "two local dental clinics",
+      "cms": "WordPress",
+      "business_goal": "increase qualified local leads"
+    },
+    "expected_deliverables": ["audit_report", "prioritized_backlog", "keyword_gap_table"],
+    "qa_expectations": ["local intent reviewed", "technical issues prioritized", "evidence links included"],
+    "policy_expectations": ["no ranking guarantee", "no ad spend"]
+  },
+  {
+    "service_slug": "seo-geo-audit",
+    "sample_id": "seo-002",
+    "brief": {
+      "website_url": "https://example-saas.test",
+      "target_market": "United States",
+      "target_keywords": "ai meeting notes, meeting summary tool",
+      "competitors": "three SaaS competitors",
+      "cms": "Webflow",
+      "business_goal": "improve GEO visibility in AI answer engines"
+    },
+    "expected_deliverables": ["geo_findings", "content_backlog", "competitor_gap_table"],
+    "qa_expectations": ["GEO recommendations separated from traditional SEO", "competitor evidence included"],
+    "policy_expectations": ["forecast uncertainty labeled"]
+  },
+  {
+    "service_slug": "seo-geo-audit",
+    "sample_id": "seo-003",
+    "brief": {
+      "website_url": "https://example-shop.test",
+      "target_market": "US ecommerce",
+      "target_keywords": "ergonomic desk chair, home office chair",
+      "competitors": "Amazon listings and two DTC stores",
+      "cms": "Shopify",
+      "business_goal": "increase organic product page conversions"
+    },
+    "expected_deliverables": ["product_seo_audit", "collection_page_backlog"],
+    "qa_expectations": ["product schema checked", "category intent mapped"],
+    "policy_expectations": ["no Shopify mutation"]
+  },
+  {
+    "service_slug": "seo-geo-audit",
+    "sample_id": "seo-004",
+    "brief": {
+      "website_url": "https://example-law.test",
+      "target_market": "California",
+      "target_keywords": "startup lawyer, incorporation attorney",
+      "competitors": "regional law firms",
+      "cms": "Custom",
+      "business_goal": "identify high-intent content opportunities"
+    },
+    "expected_deliverables": ["audit_report", "content_gap_table"],
+    "qa_expectations": ["regulated-claims risk flagged", "local pages reviewed"],
+    "policy_expectations": ["legal advice boundary included"]
+  },
+  {
+    "service_slug": "seo-geo-audit",
+    "sample_id": "seo-005",
+    "brief": {
+      "website_url": "https://example-restaurant.test",
+      "target_market": "Brooklyn, NY",
+      "target_keywords": "private dining, wine bar",
+      "competitors": "local restaurants",
+      "cms": "Squarespace",
+      "business_goal": "increase reservations"
+    },
+    "expected_deliverables": ["local_seo_audit", "review_presence_notes"],
+    "qa_expectations": ["maps/local pack factors included", "reservation conversion path reviewed"],
+    "policy_expectations": ["no review manipulation"]
+  },
+  {
+    "service_slug": "seo-geo-audit",
+    "sample_id": "seo-006",
+    "brief": {
+      "website_url": "https://example-course.test",
+      "target_market": "English-speaking creators",
+      "target_keywords": "youtube editing course, video editing course",
+      "competitors": "online course marketplaces",
+      "cms": "Kajabi",
+      "business_goal": "increase content-led enrollments"
+    },
+    "expected_deliverables": ["content_cluster_plan", "technical_findings"],
+    "qa_expectations": ["SERP intent grouped", "conversion pages separated from content pages"],
+    "policy_expectations": ["income claims flagged"]
+  },
+  {
+    "service_slug": "seo-geo-audit",
+    "sample_id": "seo-007",
+    "brief": {
+      "website_url": "https://example-clinic.test",
+      "target_market": "Seattle, WA",
+      "target_keywords": "physical therapy, sports rehab",
+      "competitors": "local clinics",
+      "cms": "WordPress",
+      "business_goal": "find technical blockers and content gaps"
+    },
+    "expected_deliverables": ["technical_audit", "content_recommendations"],
+    "qa_expectations": ["health claims flagged", "local intent reviewed"],
+    "policy_expectations": ["medical advice boundary included"]
+  },
+  {
+    "service_slug": "seo-geo-audit",
+    "sample_id": "seo-008",
+    "brief": {
+      "website_url": "https://example-b2b.test",
+      "target_market": "enterprise IT buyers",
+      "target_keywords": "identity governance, access review automation",
+      "competitors": "three enterprise vendors",
+      "cms": "Headless",
+      "business_goal": "prioritize SEO backlog for engineering"
+    },
+    "expected_deliverables": ["engineering_backlog", "content_gap_table"],
+    "qa_expectations": ["technical and content recommendations separated", "priority scores included"],
+    "policy_expectations": ["no unsupported security claims"]
+  },
+  {
+    "service_slug": "seo-geo-audit",
+    "sample_id": "seo-009",
+    "brief": {
+      "website_url": "https://example-nonprofit.test",
+      "target_market": "donors and volunteers",
+      "target_keywords": "food bank volunteer, donate food",
+      "competitors": "local nonprofits",
+      "cms": "Wix",
+      "business_goal": "increase donations and volunteer signups"
+    },
+    "expected_deliverables": ["conversion_path_audit", "local_content_backlog"],
+    "qa_expectations": ["donation journey reviewed", "accessibility issues noted"],
+    "policy_expectations": ["no deceptive urgency tactics"]
+  },
+  {
+    "service_slug": "seo-geo-audit",
+    "sample_id": "seo-010",
+    "brief": {
+      "website_url": "https://example-realestate.test",
+      "target_market": "Miami luxury buyers",
+      "target_keywords": "luxury condos miami, waterfront homes",
+      "competitors": "brokerage competitors",
+      "cms": "Custom IDX",
+      "business_goal": "identify local landing page opportunities"
+    },
+    "expected_deliverables": ["local_landing_page_map", "technical_findings"],
+    "qa_expectations": ["IDX crawl constraints noted", "location modifiers mapped"],
+    "policy_expectations": ["no housing discrimination language"]
+  },
+  {
+    "service_slug": "data-cleaning-formatting",
+    "sample_id": "data-001",
+    "brief": {
+      "dataset_file": "crm_contacts.csv",
+      "target_schema": "email, first_name, last_name, company, role, country",
+      "dedupe_rules": "dedupe by normalized email",
+      "missing_value_rules": "blank unknown values",
+      "output_format": "csv"
+    },
+    "expected_deliverables": ["clean_csv", "data_dictionary", "cleaning_report"],
+    "qa_expectations": ["row counts reconciled", "duplicate count reported"],
+    "policy_expectations": ["PII handling noted"]
+  },
+  {
+    "service_slug": "data-cleaning-formatting",
+    "sample_id": "data-002",
+    "brief": {
+      "dataset_file": "shopify_products.xlsx",
+      "target_schema": "sku,title,price,vendor,category,inventory",
+      "dedupe_rules": "dedupe by sku",
+      "missing_value_rules": "flag missing sku or price",
+      "output_format": "xlsx and csv"
+    },
+    "expected_deliverables": ["clean_product_catalog", "issue_report"],
+    "qa_expectations": ["invalid prices flagged", "SKU uniqueness checked"],
+    "policy_expectations": ["no live Shopify changes"]
+  },
+  {
+    "service_slug": "data-cleaning-formatting",
+    "sample_id": "data-003",
+    "brief": {
+      "dataset_file": "event_registrations.csv",
+      "target_schema": "name,email,ticket_type,company,checked_in",
+      "dedupe_rules": "dedupe by email and ticket_type",
+      "missing_value_rules": "flag missing email",
+      "output_format": "csv"
+    },
+    "expected_deliverables": ["clean_csv", "exception_rows"],
+    "qa_expectations": ["boolean normalization checked", "missing emails flagged"],
+    "policy_expectations": ["PII handling noted"]
+  },
+  {
+    "service_slug": "data-cleaning-formatting",
+    "sample_id": "data-004",
+    "brief": {
+      "dataset_file": "survey_results.csv",
+      "target_schema": "respondent_id,nps,segment,comment",
+      "dedupe_rules": "dedupe by respondent_id",
+      "missing_value_rules": "keep empty comments",
+      "output_format": "csv with summary"
+    },
+    "expected_deliverables": ["clean_csv", "summary_report"],
+    "qa_expectations": ["NPS numeric range checked", "free-text preserved"],
+    "policy_expectations": ["sensitive comments flagged"]
+  },
+  {
+    "service_slug": "data-cleaning-formatting",
+    "sample_id": "data-005",
+    "brief": {
+      "dataset_file": "invoices.csv",
+      "target_schema": "invoice_id,date,customer,total,currency,status",
+      "dedupe_rules": "dedupe by invoice_id",
+      "missing_value_rules": "flag missing totals",
+      "output_format": "xlsx"
+    },
+    "expected_deliverables": ["clean_xlsx", "reconciliation_report"],
+    "qa_expectations": ["currency normalized", "totals parsed"],
+    "policy_expectations": ["not financial advice"]
+  },
+  {
+    "service_slug": "data-cleaning-formatting",
+    "sample_id": "data-006",
+    "brief": {
+      "dataset_file": "lead_list.csv",
+      "target_schema": "company,website,contact_name,email,industry",
+      "dedupe_rules": "dedupe by website and email",
+      "missing_value_rules": "blank unknown contact names",
+      "output_format": "csv"
+    },
+    "expected_deliverables": ["clean_leads", "dedupe_report"],
+    "qa_expectations": ["email format checked", "company casing normalized"],
+    "policy_expectations": ["outbound use not authorized"]
+  },
+  {
+    "service_slug": "data-cleaning-formatting",
+    "sample_id": "data-007",
+    "brief": {
+      "dataset_file": "real_estate_listings.csv",
+      "target_schema": "address,city,state,zip,price,beds,baths",
+      "dedupe_rules": "dedupe by normalized address",
+      "missing_value_rules": "flag missing price",
+      "output_format": "csv"
+    },
+    "expected_deliverables": ["clean_listings", "quality_report"],
+    "qa_expectations": ["zip format checked", "numeric fields parsed"],
+    "policy_expectations": ["source provenance retained"]
+  },
+  {
+    "service_slug": "data-cleaning-formatting",
+    "sample_id": "data-008",
+    "brief": {
+      "dataset_file": "app_events.json",
+      "target_schema": "user_id,event_name,timestamp,properties",
+      "dedupe_rules": "dedupe by event_id when present",
+      "missing_value_rules": "flag missing timestamp",
+      "output_format": "parquet and csv sample"
+    },
+    "expected_deliverables": ["normalized_dataset", "schema_report"],
+    "qa_expectations": ["timestamp parsing checked", "nested fields documented"],
+    "policy_expectations": ["user identifiers treated as sensitive"]
+  },
+  {
+    "service_slug": "data-cleaning-formatting",
+    "sample_id": "data-009",
+    "brief": {
+      "dataset_file": "donor_database.xlsx",
+      "target_schema": "donor_id,name,email,total_donated,last_donation_date",
+      "dedupe_rules": "dedupe by donor_id and email",
+      "missing_value_rules": "flag missing email",
+      "output_format": "xlsx"
+    },
+    "expected_deliverables": ["clean_workbook", "exceptions_tab"],
+    "qa_expectations": ["date parsing checked", "donation totals preserved"],
+    "policy_expectations": ["PII and donor privacy noted"]
+  },
+  {
+    "service_slug": "data-cleaning-formatting",
+    "sample_id": "data-010",
+    "brief": {
+      "dataset_file": "ad_campaign_export.csv",
+      "target_schema": "campaign,ad_group,spend,clicks,conversions,date",
+      "dedupe_rules": "dedupe by campaign,ad_group,date",
+      "missing_value_rules": "zero-fill missing conversions only",
+      "output_format": "csv"
+    },
+    "expected_deliverables": ["clean_campaign_data", "metric_notes"],
+    "qa_expectations": ["numeric metrics parsed", "zero-fill rule only applied to conversions"],
+    "policy_expectations": ["no ad account mutation"]
+  },
+  {
+    "service_slug": "presentation-pitch-deck",
+    "sample_id": "deck-001",
+    "brief": {
+      "deck_goal": "seed fundraising",
+      "audience": "early-stage investors",
+      "source_materials": "founder notes and metrics",
+      "brand_assets": "logo and colors",
+      "slide_count": "12",
+      "format": "PPTX"
+    },
+    "expected_deliverables": ["deck_outline", "pptx", "speaker_notes"],
+    "qa_expectations": ["narrative arc coherent", "assumptions labeled"],
+    "policy_expectations": ["financial projections marked as assumptions"]
+  },
+  {
+    "service_slug": "presentation-pitch-deck",
+    "sample_id": "deck-002",
+    "brief": {
+      "deck_goal": "enterprise sales",
+      "audience": "CIO and procurement team",
+      "source_materials": "case study, product one-pager",
+      "brand_assets": "brand guide",
+      "slide_count": "10",
+      "format": "Google Slides outline"
+    },
+    "expected_deliverables": ["sales_narrative", "slide_copy", "speaker_notes"],
+    "qa_expectations": ["buyer pain mapped", "proof points separated from claims"],
+    "policy_expectations": ["no unsupported security claims"]
+  },
+  {
+    "service_slug": "presentation-pitch-deck",
+    "sample_id": "deck-003",
+    "brief": {
+      "deck_goal": "board update",
+      "audience": "board members",
+      "source_materials": "quarterly metrics",
+      "brand_assets": "company template",
+      "slide_count": "8",
+      "format": "PPTX"
+    },
+    "expected_deliverables": ["board_deck", "executive_summary"],
+    "qa_expectations": ["metrics summarized without distortion", "risks included"],
+    "policy_expectations": ["confidentiality noted"]
+  },
+  {
+    "service_slug": "presentation-pitch-deck",
+    "sample_id": "deck-004",
+    "brief": {
+      "deck_goal": "product launch",
+      "audience": "internal GTM team",
+      "source_materials": "launch brief and roadmap",
+      "brand_assets": "product screenshots",
+      "slide_count": "9",
+      "format": "PPTX"
+    },
+    "expected_deliverables": ["launch_deck", "speaker_notes"],
+    "qa_expectations": ["timeline and owners clear", "screenshots referenced"],
+    "policy_expectations": ["no external publishing"]
+  },
+  {
+    "service_slug": "presentation-pitch-deck",
+    "sample_id": "deck-005",
+    "brief": {
+      "deck_goal": "webinar presentation",
+      "audience": "startup operators",
+      "source_materials": "blog post and examples",
+      "brand_assets": "speaker headshot",
+      "slide_count": "15",
+      "format": "Keynote outline"
+    },
+    "expected_deliverables": ["webinar_outline", "slide_copy", "talk_track"],
+    "qa_expectations": ["teaching flow clear", "examples actionable"],
+    "policy_expectations": ["source credits listed"]
+  },
+  {
+    "service_slug": "presentation-pitch-deck",
+    "sample_id": "deck-006",
+    "brief": {
+      "deck_goal": "partnership proposal",
+      "audience": "strategic partner",
+      "source_materials": "partner notes and offering",
+      "brand_assets": "two brand guides",
+      "slide_count": "8",
+      "format": "PDF-ready deck"
+    },
+    "expected_deliverables": ["proposal_deck", "co_branding_notes"],
+    "qa_expectations": ["mutual value clear", "next steps explicit"],
+    "policy_expectations": ["claims about partner not invented"]
+  },
+  {
+    "service_slug": "presentation-pitch-deck",
+    "sample_id": "deck-007",
+    "brief": {
+      "deck_goal": "training deck",
+      "audience": "new support hires",
+      "source_materials": "SOP and FAQ",
+      "brand_assets": "internal template",
+      "slide_count": "20",
+      "format": "PPTX"
+    },
+    "expected_deliverables": ["training_deck", "facilitator_notes"],
+    "qa_expectations": ["learning objectives included", "quiz prompts included"],
+    "policy_expectations": ["internal-only label"]
+  },
+  {
+    "service_slug": "presentation-pitch-deck",
+    "sample_id": "deck-008",
+    "brief": {
+      "deck_goal": "investor update",
+      "audience": "existing investors",
+      "source_materials": "monthly metrics and asks",
+      "brand_assets": "logo",
+      "slide_count": "6",
+      "format": "PDF"
+    },
+    "expected_deliverables": ["update_deck", "email_summary"],
+    "qa_expectations": ["asks clear", "wins and risks balanced"],
+    "policy_expectations": ["confidentiality noted"]
+  },
+  {
+    "service_slug": "presentation-pitch-deck",
+    "sample_id": "deck-009",
+    "brief": {
+      "deck_goal": "conference talk",
+      "audience": "technical founders",
+      "source_materials": "talk abstract and demos",
+      "brand_assets": "event template",
+      "slide_count": "18",
+      "format": "PPTX"
+    },
+    "expected_deliverables": ["talk_deck", "demo_cue_notes"],
+    "qa_expectations": ["demo cues visible", "technical depth matches audience"],
+    "policy_expectations": ["demo limitations stated"]
+  },
+  {
+    "service_slug": "presentation-pitch-deck",
+    "sample_id": "deck-010",
+    "brief": {
+      "deck_goal": "customer QBR",
+      "audience": "customer executive sponsor",
+      "source_materials": "usage metrics and roadmap",
+      "brand_assets": "customer-safe template",
+      "slide_count": "10",
+      "format": "PPTX"
+    },
+    "expected_deliverables": ["qbr_deck", "talk_track"],
+    "qa_expectations": ["metrics tied to outcomes", "roadmap caveats included"],
+    "policy_expectations": ["no confidential roadmap overstatement"]
+  }
+]
+

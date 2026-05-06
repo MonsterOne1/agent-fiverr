@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Translation & Localization Agent Brief",
+  "type": "object",
+  "required": [
+    "source_text",
+    "source_language",
+    "target_language",
+    "locale",
+    "tone",
+    "glossary",
+    "do_not_translate_terms"
+  ],
+  "properties": {
+    "source_text": {
+      "type": "string",
+      "title": "Source Text",
+      "minLength": 1
+    },
+    "source_language": {
+      "type": "string",
+      "title": "Source Language",
+      "minLength": 1
+    },
+    "target_language": {
+      "type": "string",
+      "title": "Target Language",
+      "minLength": 1
+    },
+    "locale": {
+      "type": "string",
+      "title": "Locale",
+      "minLength": 1
+    },
+    "tone": {
+      "type": "string",
+      "title": "Tone",
+      "minLength": 1
+    },
+    "glossary": {
+      "type": "string",
+      "title": "Glossary",
+      "minLength": 1
+    },
+    "do_not_translate_terms": {
+      "type": "string",
+      "title": "Do Not Translate Terms",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

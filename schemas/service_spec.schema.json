@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-fiverr.local/schemas/service_spec.schema.json",
+  "title": "Agent Fiverr Service Spec",
+  "type": "object",
+  "required": [
+    "slug",
+    "name",
+    "category",
+    "task_type",
+    "archetype",
+    "automation_level",
+    "risk_level",
+    "deliverable_types",
+    "api_providers",
+    "brief_fields",
+    "output_fields",
+    "qa_checks",
+    "policy_rules",
+    "golden_samples"
+  ],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "name": { "type": "string", "minLength": 3 },
+    "category": { "type": "string", "minLength": 3 },
+    "task_type": { "type": "string", "minLength": 3 },
+    "archetype": { "type": "string", "minLength": 3 },
+    "automation_level": { "type": "string", "enum": ["L1", "L2", "L3", "L4", "L5"] },
+    "risk_level": { "type": "string", "enum": ["low", "medium", "high"] },
+    "deliverable_types": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "api_providers": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "brief_fields": { "type": "array", "items": { "type": "string" }, "minItems": 3 },
+    "output_fields": { "type": "array", "items": { "type": "string" }, "minItems": 3 },
+    "qa_checks": { "type": "array", "items": { "type": "string" }, "minItems": 2 },
+    "policy_rules": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "golden_samples": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+  },
+  "additionalProperties": false
+}
+

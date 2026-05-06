@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SEO / GEO Audit Agent Brief",
+  "type": "object",
+  "required": [
+    "website_url",
+    "target_market",
+    "target_keywords",
+    "competitors",
+    "cms",
+    "business_goal"
+  ],
+  "properties": {
+    "website_url": {
+      "type": "string",
+      "title": "Website Url",
+      "minLength": 1
+    },
+    "target_market": {
+      "type": "string",
+      "title": "Target Market",
+      "minLength": 1
+    },
+    "target_keywords": {
+      "type": "string",
+      "title": "Target Keywords",
+      "minLength": 1
+    },
+    "competitors": {
+      "type": "string",
+      "title": "Competitors",
+      "minLength": 1
+    },
+    "cms": {
+      "type": "string",
+      "title": "Cms",
+      "minLength": 1
+    },
+    "business_goal": {
+      "type": "string",
+      "title": "Business Goal",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

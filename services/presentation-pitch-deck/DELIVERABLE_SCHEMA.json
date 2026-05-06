@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Presentation / Pitch Deck Agent Deliverable",
+  "type": "object",
+  "required": [
+    "narrative",
+    "slides",
+    "speaker_notes",
+    "design_notes",
+    "open_questions"
+  ],
+  "properties": {
+    "narrative": {
+      "type": "string",
+      "title": "Narrative",
+      "minLength": 1
+    },
+    "slides": {
+      "type": "string",
+      "title": "Slides",
+      "minLength": 1
+    },
+    "speaker_notes": {
+      "type": "string",
+      "title": "Speaker Notes",
+      "minLength": 1
+    },
+    "design_notes": {
+      "type": "string",
+      "title": "Design Notes",
+      "minLength": 1
+    },
+    "open_questions": {
+      "type": "string",
+      "title": "Open Questions",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

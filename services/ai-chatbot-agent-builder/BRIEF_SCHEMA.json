@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI Chatbot / AI Agent Builder Brief",
+  "type": "object",
+  "required": [
+    "use_case",
+    "users",
+    "knowledge_sources",
+    "tools",
+    "success_criteria",
+    "deployment_target"
+  ],
+  "properties": {
+    "use_case": {
+      "type": "string",
+      "title": "Use Case",
+      "minLength": 1
+    },
+    "users": {
+      "type": "string",
+      "title": "Users",
+      "minLength": 1
+    },
+    "knowledge_sources": {
+      "type": "string",
+      "title": "Knowledge Sources",
+      "minLength": 1
+    },
+    "tools": {
+      "type": "string",
+      "title": "Tools",
+      "minLength": 1
+    },
+    "success_criteria": {
+      "type": "string",
+      "title": "Success Criteria",
+      "minLength": 1
+    },
+    "deployment_target": {
+      "type": "string",
+      "title": "Deployment Target",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

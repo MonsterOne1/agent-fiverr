@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-fiverr.local/schemas/workspace_manifest.schema.json",
+  "title": "Agent Service Workspace Manifest",
+  "type": "object",
+  "required": ["service", "required_files", "lifecycle", "quality_gates", "authorization_gates"],
+  "properties": {
+    "service": { "type": "string" },
+    "required_files": { "type": "array", "items": { "type": "string" }, "minItems": 10 },
+    "lifecycle": { "type": "array", "items": { "type": "string" }, "minItems": 8 },
+    "quality_gates": { "type": "array", "items": { "type": "string" }, "minItems": 3 },
+    "authorization_gates": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+  },
+  "additionalProperties": false
+}
+

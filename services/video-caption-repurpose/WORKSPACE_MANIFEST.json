@@ -1,0 +1,41 @@
+{
+  "service": "video-caption-repurpose",
+  "required_files": [
+    "SERVICE.md",
+    "BRIEF_SCHEMA.json",
+    "DELIVERABLE_SCHEMA.json",
+    "QUOTE_RULES.md",
+    "QA_RUBRIC.md",
+    "EVALS.md",
+    "TOOLS.md",
+    "POLICY.md",
+    "REVISION.md",
+    "HANDOFF.md",
+    "WORKSPACE_MANIFEST.json"
+  ],
+  "lifecycle": [
+    "intake",
+    "scope_check",
+    "quote",
+    "plan",
+    "work",
+    "qa",
+    "delivery",
+    "revision",
+    "close",
+    "memory"
+  ],
+  "quality_gates": [
+    "captions_sync_checked",
+    "aspect_ratios_checked",
+    "music_voice_rights_recorded"
+  ],
+  "authorization_gates": [
+    "external_publishing",
+    "account_mutation",
+    "ad_spend",
+    "production_deploy",
+    "payment_action",
+    "outbound_message_send"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Social Media Calendar Agent Deliverable",
+  "type": "object",
+  "required": [
+    "calendar",
+    "copy_variants",
+    "creative_prompts",
+    "hashtags",
+    "approval_status"
+  ],
+  "properties": {
+    "calendar": {
+      "type": "string",
+      "title": "Calendar",
+      "minLength": 1
+    },
+    "copy_variants": {
+      "type": "string",
+      "title": "Copy Variants",
+      "minLength": 1
+    },
+    "creative_prompts": {
+      "type": "string",
+      "title": "Creative Prompts",
+      "minLength": 1
+    },
+    "hashtags": {
+      "type": "string",
+      "title": "Hashtags",
+      "minLength": 1
+    },
+    "approval_status": {
+      "type": "string",
+      "title": "Approval Status",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

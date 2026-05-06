@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WordPress / Shopify Small Task Agent Deliverable",
+  "type": "object",
+  "required": [
+    "plan",
+    "changes",
+    "screenshots_or_notes",
+    "rollback_steps",
+    "open_risks"
+  ],
+  "properties": {
+    "plan": {
+      "type": "string",
+      "title": "Plan",
+      "minLength": 1
+    },
+    "changes": {
+      "type": "string",
+      "title": "Changes",
+      "minLength": 1
+    },
+    "screenshots_or_notes": {
+      "type": "string",
+      "title": "Screenshots Or Notes",
+      "minLength": 1
+    },
+    "rollback_steps": {
+      "type": "string",
+      "title": "Rollback Steps",
+      "minLength": 1
+    },
+    "open_risks": {
+      "type": "string",
+      "title": "Open Risks",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

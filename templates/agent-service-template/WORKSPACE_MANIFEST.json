@@ -1,0 +1,36 @@
+{
+  "service": "{{SERVICE_SLUG}}",
+  "required_files": [
+    "SERVICE.md",
+    "BRIEF_SCHEMA.json",
+    "DELIVERABLE_SCHEMA.json",
+    "QUOTE_RULES.md",
+    "QA_RUBRIC.md",
+    "EVALS.md",
+    "TOOLS.md",
+    "POLICY.md",
+    "REVISION.md",
+    "HANDOFF.md",
+    "WORKSPACE_MANIFEST.json"
+  ],
+  "lifecycle": [
+    "intake",
+    "scope_check",
+    "quote",
+    "plan",
+    "work",
+    "qa",
+    "delivery",
+    "revision",
+    "close",
+    "memory"
+  ],
+  "quality_gates": [
+    "brief_complete",
+    "deliverable_schema_valid",
+    "policy_checked"
+  ],
+  "authorization_gates": [
+    "external_side_effects"
+  ]
+}

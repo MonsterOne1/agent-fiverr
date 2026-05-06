@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resume / LinkedIn Profile Agent Brief",
+  "type": "object",
+  "required": [
+    "current_resume",
+    "target_roles",
+    "career_level",
+    "achievements",
+    "constraints",
+    "preferred_format"
+  ],
+  "properties": {
+    "current_resume": {
+      "type": "string",
+      "title": "Current Resume",
+      "minLength": 1
+    },
+    "target_roles": {
+      "type": "string",
+      "title": "Target Roles",
+      "minLength": 1
+    },
+    "career_level": {
+      "type": "string",
+      "title": "Career Level",
+      "minLength": 1
+    },
+    "achievements": {
+      "type": "string",
+      "title": "Achievements",
+      "minLength": 1
+    },
+    "constraints": {
+      "type": "string",
+      "title": "Constraints",
+      "minLength": 1
+    },
+    "preferred_format": {
+      "type": "string",
+      "title": "Preferred Format",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

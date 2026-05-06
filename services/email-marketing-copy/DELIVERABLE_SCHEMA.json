@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Email Marketing Copy Agent Deliverable",
+  "type": "object",
+  "required": [
+    "sequence",
+    "subject_lines",
+    "preview_text",
+    "cta",
+    "test_hypotheses"
+  ],
+  "properties": {
+    "sequence": {
+      "type": "string",
+      "title": "Sequence",
+      "minLength": 1
+    },
+    "subject_lines": {
+      "type": "string",
+      "title": "Subject Lines",
+      "minLength": 1
+    },
+    "preview_text": {
+      "type": "string",
+      "title": "Preview Text",
+      "minLength": 1
+    },
+    "cta": {
+      "type": "string",
+      "title": "Cta",
+      "minLength": 1
+    },
+    "test_hypotheses": {
+      "type": "string",
+      "title": "Test Hypotheses",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

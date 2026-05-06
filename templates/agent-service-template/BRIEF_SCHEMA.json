@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "{{SERVICE_NAME}} Brief",
+  "type": "object",
+  "required": [
+    "buyer_goal",
+    "target_audience",
+    "constraints"
+  ],
+  "properties": {
+    "buyer_goal": {
+      "type": "string",
+      "title": "Buyer Goal",
+      "minLength": 1
+    },
+    "target_audience": {
+      "type": "string",
+      "title": "Target Audience",
+      "minLength": 1
+    },
+    "constraints": {
+      "type": "string",
+      "title": "Constraints",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

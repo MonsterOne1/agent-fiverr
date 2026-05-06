@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Video Caption + Repurpose Agent Deliverable",
+  "type": "object",
+  "required": [
+    "transcript",
+    "clips",
+    "captions",
+    "render_settings",
+    "asset_manifest"
+  ],
+  "properties": {
+    "transcript": {
+      "type": "string",
+      "title": "Transcript",
+      "minLength": 1
+    },
+    "clips": {
+      "type": "string",
+      "title": "Clips",
+      "minLength": 1
+    },
+    "captions": {
+      "type": "string",
+      "title": "Captions",
+      "minLength": 1
+    },
+    "render_settings": {
+      "type": "string",
+      "title": "Render Settings",
+      "minLength": 1
+    },
+    "asset_manifest": {
+      "type": "string",
+      "title": "Asset Manifest",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

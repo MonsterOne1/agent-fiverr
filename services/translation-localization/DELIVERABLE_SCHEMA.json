@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Translation & Localization Agent Deliverable",
+  "type": "object",
+  "required": [
+    "translation",
+    "glossary_used",
+    "cultural_notes",
+    "uncertain_terms"
+  ],
+  "properties": {
+    "translation": {
+      "type": "string",
+      "title": "Translation",
+      "minLength": 1
+    },
+    "glossary_used": {
+      "type": "string",
+      "title": "Glossary Used",
+      "minLength": 1
+    },
+    "cultural_notes": {
+      "type": "string",
+      "title": "Cultural Notes",
+      "minLength": 1
+    },
+    "uncertain_terms": {
+      "type": "string",
+      "title": "Uncertain Terms",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

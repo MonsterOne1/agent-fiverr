@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data Cleaning & Formatting Agent Deliverable",
+  "type": "object",
+  "required": [
+    "cleaned_dataset",
+    "change_log",
+    "row_counts",
+    "data_dictionary",
+    "quality_warnings"
+  ],
+  "properties": {
+    "cleaned_dataset": {
+      "type": "string",
+      "title": "Cleaned Dataset",
+      "minLength": 1
+    },
+    "change_log": {
+      "type": "string",
+      "title": "Change Log",
+      "minLength": 1
+    },
+    "row_counts": {
+      "type": "string",
+      "title": "Row Counts",
+      "minLength": 1
+    },
+    "data_dictionary": {
+      "type": "string",
+      "title": "Data Dictionary",
+      "minLength": 1
+    },
+    "quality_warnings": {
+      "type": "string",
+      "title": "Quality Warnings",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

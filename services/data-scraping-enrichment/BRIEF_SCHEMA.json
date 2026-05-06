@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data Scraping + Enrichment Agent Brief",
+  "type": "object",
+  "required": [
+    "target_sources",
+    "fields",
+    "volume",
+    "refresh_frequency",
+    "allowed_methods",
+    "compliance_constraints"
+  ],
+  "properties": {
+    "target_sources": {
+      "type": "string",
+      "title": "Target Sources",
+      "minLength": 1
+    },
+    "fields": {
+      "type": "string",
+      "title": "Fields",
+      "minLength": 1
+    },
+    "volume": {
+      "type": "string",
+      "title": "Volume",
+      "minLength": 1
+    },
+    "refresh_frequency": {
+      "type": "string",
+      "title": "Refresh Frequency",
+      "minLength": 1
+    },
+    "allowed_methods": {
+      "type": "string",
+      "title": "Allowed Methods",
+      "minLength": 1
+    },
+    "compliance_constraints": {
+      "type": "string",
+      "title": "Compliance Constraints",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

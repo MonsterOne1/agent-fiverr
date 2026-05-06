@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Social Media Calendar Agent Brief",
+  "type": "object",
+  "required": [
+    "brand",
+    "channels",
+    "posting_frequency",
+    "campaign_goal",
+    "audience",
+    "offer",
+    "brand_assets"
+  ],
+  "properties": {
+    "brand": {
+      "type": "string",
+      "title": "Brand",
+      "minLength": 1
+    },
+    "channels": {
+      "type": "string",
+      "title": "Channels",
+      "minLength": 1
+    },
+    "posting_frequency": {
+      "type": "string",
+      "title": "Posting Frequency",
+      "minLength": 1
+    },
+    "campaign_goal": {
+      "type": "string",
+      "title": "Campaign Goal",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "string",
+      "title": "Audience",
+      "minLength": 1
+    },
+    "offer": {
+      "type": "string",
+      "title": "Offer",
+      "minLength": 1
+    },
+    "brand_assets": {
+      "type": "string",
+      "title": "Brand Assets",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

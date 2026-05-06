@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Logo Concept / Brand Kit Draft Agent Deliverable",
+  "type": "object",
+  "required": [
+    "concepts",
+    "rationale",
+    "palette",
+    "typography_direction",
+    "asset_manifest"
+  ],
+  "properties": {
+    "concepts": {
+      "type": "string",
+      "title": "Concepts",
+      "minLength": 1
+    },
+    "rationale": {
+      "type": "string",
+      "title": "Rationale",
+      "minLength": 1
+    },
+    "palette": {
+      "type": "string",
+      "title": "Palette",
+      "minLength": 1
+    },
+    "typography_direction": {
+      "type": "string",
+      "title": "Typography Direction",
+      "minLength": 1
+    },
+    "asset_manifest": {
+      "type": "string",
+      "title": "Asset Manifest",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

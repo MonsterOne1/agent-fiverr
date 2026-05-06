@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Market Research Brief Agent Deliverable",
+  "type": "object",
+  "required": [
+    "summary",
+    "market_map",
+    "competitors",
+    "trends",
+    "sources",
+    "limitations"
+  ],
+  "properties": {
+    "summary": {
+      "type": "string",
+      "title": "Summary",
+      "minLength": 1
+    },
+    "market_map": {
+      "type": "string",
+      "title": "Market Map",
+      "minLength": 1
+    },
+    "competitors": {
+      "type": "string",
+      "title": "Competitors",
+      "minLength": 1
+    },
+    "trends": {
+      "type": "string",
+      "title": "Trends",
+      "minLength": 1
+    },
+    "sources": {
+      "type": "string",
+      "title": "Sources",
+      "minLength": 1
+    },
+    "limitations": {
+      "type": "string",
+      "title": "Limitations",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

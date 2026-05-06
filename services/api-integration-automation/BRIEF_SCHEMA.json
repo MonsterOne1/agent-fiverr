@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "API Integration / Automation Agent Brief",
+  "type": "object",
+  "required": [
+    "systems",
+    "trigger",
+    "actions",
+    "auth_method",
+    "data_mapping",
+    "error_handling"
+  ],
+  "properties": {
+    "systems": {
+      "type": "string",
+      "title": "Systems",
+      "minLength": 1
+    },
+    "trigger": {
+      "type": "string",
+      "title": "Trigger",
+      "minLength": 1
+    },
+    "actions": {
+      "type": "string",
+      "title": "Actions",
+      "minLength": 1
+    },
+    "auth_method": {
+      "type": "string",
+      "title": "Auth Method",
+      "minLength": 1
+    },
+    "data_mapping": {
+      "type": "string",
+      "title": "Data Mapping",
+      "minLength": 1
+    },
+    "error_handling": {
+      "type": "string",
+      "title": "Error Handling",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

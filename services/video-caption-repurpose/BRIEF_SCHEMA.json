@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Video Caption + Repurpose Agent Brief",
+  "type": "object",
+  "required": [
+    "source_video",
+    "target_channels",
+    "clip_count",
+    "aspect_ratios",
+    "caption_style",
+    "music_or_voiceover_needs"
+  ],
+  "properties": {
+    "source_video": {
+      "type": "string",
+      "title": "Source Video",
+      "minLength": 1
+    },
+    "target_channels": {
+      "type": "string",
+      "title": "Target Channels",
+      "minLength": 1
+    },
+    "clip_count": {
+      "type": "string",
+      "title": "Clip Count",
+      "minLength": 1
+    },
+    "aspect_ratios": {
+      "type": "string",
+      "title": "Aspect Ratios",
+      "minLength": 1
+    },
+    "caption_style": {
+      "type": "string",
+      "title": "Caption Style",
+      "minLength": 1
+    },
+    "music_or_voiceover_needs": {
+      "type": "string",
+      "title": "Music Or Voiceover Needs",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

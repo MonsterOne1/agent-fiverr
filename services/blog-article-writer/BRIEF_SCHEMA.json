@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Blog & Article Writer Agent Brief",
+  "type": "object",
+  "required": [
+    "topic",
+    "audience",
+    "tone",
+    "target_length",
+    "keywords",
+    "source_links",
+    "brand_voice"
+  ],
+  "properties": {
+    "topic": {
+      "type": "string",
+      "title": "Topic",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "string",
+      "title": "Audience",
+      "minLength": 1
+    },
+    "tone": {
+      "type": "string",
+      "title": "Tone",
+      "minLength": 1
+    },
+    "target_length": {
+      "type": "string",
+      "title": "Target Length",
+      "minLength": 1
+    },
+    "keywords": {
+      "type": "string",
+      "title": "Keywords",
+      "minLength": 1
+    },
+    "source_links": {
+      "type": "string",
+      "title": "Source Links",
+      "minLength": 1
+    },
+    "brand_voice": {
+      "type": "string",
+      "title": "Brand Voice",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

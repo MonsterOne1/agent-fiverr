@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI Chatbot / AI Agent Builder Deliverable",
+  "type": "object",
+  "required": [
+    "agent_spec",
+    "system_prompt",
+    "tool_contracts",
+    "evals",
+    "deployment_notes"
+  ],
+  "properties": {
+    "agent_spec": {
+      "type": "string",
+      "title": "Agent Spec",
+      "minLength": 1
+    },
+    "system_prompt": {
+      "type": "string",
+      "title": "System Prompt",
+      "minLength": 1
+    },
+    "tool_contracts": {
+      "type": "string",
+      "title": "Tool Contracts",
+      "minLength": 1
+    },
+    "evals": {
+      "type": "string",
+      "title": "Evals",
+      "minLength": 1
+    },
+    "deployment_notes": {
+      "type": "string",
+      "title": "Deployment Notes",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

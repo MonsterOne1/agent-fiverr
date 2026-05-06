@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "API Integration / Automation Agent Deliverable",
+  "type": "object",
+  "required": [
+    "architecture",
+    "data_mapping",
+    "implementation",
+    "tests_run",
+    "runbook"
+  ],
+  "properties": {
+    "architecture": {
+      "type": "string",
+      "title": "Architecture",
+      "minLength": 1
+    },
+    "data_mapping": {
+      "type": "string",
+      "title": "Data Mapping",
+      "minLength": 1
+    },
+    "implementation": {
+      "type": "string",
+      "title": "Implementation",
+      "minLength": 1
+    },
+    "tests_run": {
+      "type": "string",
+      "title": "Tests Run",
+      "minLength": 1
+    },
+    "runbook": {
+      "type": "string",
+      "title": "Runbook",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data Scraping + Enrichment Agent Deliverable",
+  "type": "object",
+  "required": [
+    "dataset",
+    "source_log",
+    "method_notes",
+    "blocked_sources",
+    "quality_report"
+  ],
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Dataset",
+      "minLength": 1
+    },
+    "source_log": {
+      "type": "string",
+      "title": "Source Log",
+      "minLength": 1
+    },
+    "method_notes": {
+      "type": "string",
+      "title": "Method Notes",
+      "minLength": 1
+    },
+    "blocked_sources": {
+      "type": "string",
+      "title": "Blocked Sources",
+      "minLength": 1
+    },
+    "quality_report": {
+      "type": "string",
+      "title": "Quality Report",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}
