@@ -19,6 +19,8 @@ marketplace.
 - `data/eval-fixtures.generated.json` - 100 eval fixtures: five runnable
   fixture specs for each MVP service workspace.
 - `agent_fiverr/qa.py` - automatic QA evaluator and human review queue.
+- `agent_fiverr/reviewers.py` - reviewer-pool assignment policy for human QA
+  escalations.
 - `agent_fiverr/marketplace.py` - local marketplace orchestrator for discovery,
   quotes, quote acceptance, and mock escrow holds.
 - `agent_fiverr/trust.py` - trust ledger export for order replay across audit,

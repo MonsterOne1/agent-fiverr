@@ -1,0 +1,30 @@
+[
+  {
+    "reviewer_id": "qa-marketing-1",
+    "name": "Marketing QA Reviewer",
+    "specialties": ["seo-geo-audit", "blog-article-writer", "Digital Marketing", "Writing & Translation"],
+    "max_open_reviews": 8,
+    "active": true
+  },
+  {
+    "reviewer_id": "qa-data-1",
+    "name": "Data QA Reviewer",
+    "specialties": ["data-cleaning-formatting", "data-scraping-enrichment", "dashboard-prototype", "Data"],
+    "max_open_reviews": 6,
+    "active": true
+  },
+  {
+    "reviewer_id": "qa-tech-1",
+    "name": "Technical QA Reviewer",
+    "specialties": ["website-bug-fix", "api-integration-automation", "ai-chatbot-agent-builder", "Programming & Tech"],
+    "max_open_reviews": 5,
+    "active": true
+  },
+  {
+    "reviewer_id": "qa-creative-1",
+    "name": "Creative QA Reviewer",
+    "specialties": ["presentation-pitch-deck", "logo-concept-brand-kit", "product-image-editing", "Video & Animation", "Music & Audio"],
+    "max_open_reviews": 6,
+    "active": true
+  }
+]

@@ -16,6 +16,8 @@ evaluation and human-review loop.
 - Provides a human review queue for order-level escalation.
 - Records reviewer assignment, SLA due time, reviewer-matched decisions, and
   decision notes.
+- Supports reviewer-pool assignment by service/category specialty and open
+  review capacity.
 - Supports JSON persistence/restore for review queues so review state can move
   beyond a single process.
 - Integrates with the Phase 2 simulation so all 200 generated MVP sample orders
@@ -35,6 +37,6 @@ QA evaluations: 200
 ## Remaining Work
 
 - Expert semantic scoring beyond rubric-evidence presence.
-- Reviewer staffing, dashboards, and notification integrations.
+- Real reviewer staffing, dashboards, and notification integrations.
 - Quality metrics aggregation across real orders.
 - Human-approved eval fixture expected outputs for priority services.

@@ -28,7 +28,7 @@ Implement the Fiverr-agentification plan until acceptance standards are met.
 | 3 pilot agents / 30 simulated orders | `data/pilot-sample-orders.json`; `scripts/run_pilot_simulation.py` | Implemented as simulation |
 | Each MVP workspace can run 5 golden/eval samples | `data/eval-fixtures.generated.json`; `agent_fiverr/eval_fixtures.py`; `scripts/generate_eval_fixtures.py` | Implemented as 100 runnable fixture specs |
 | 20 MVP agents / 10+ samples each | `agent_fiverr/phase2_samples.py`; `scripts/run_phase2_simulation.py` | Implemented as 200-order simulation |
-| Automatic QA + human review loop | `agent_fiverr/qa.py`; `docs/qa-runtime.md` | Baseline implemented with service-rubric evidence checks, assignment, SLA, decision records, and JSON persistence |
+| Automatic QA + human review loop | `agent_fiverr/qa.py`; `agent_fiverr/reviewers.py`; `data/reviewer-pool.example.json`; `docs/qa-runtime.md` | Baseline implemented with service-rubric evidence checks, reviewer-pool assignment, SLA, decision records, and JSON persistence |
 | Buyer brief / quote / order status | `agent_fiverr/marketplace.py`; `agent_fiverr/cli.py`; `web/` | Local alpha implemented |
 | Payment/escrow | `agent_fiverr/marketplace.py`; `agent_fiverr/payments.py`; `web/` | Mock escrow, Stripe Connect scaffold, release, refund, and dispute actions implemented without live calls |
 | Credential/key handoff | `.env.example`; `docs/credential-onboarding.md`; `tests/test_credentials.py` | Empty key placeholders and onboarding checklist implemented |
@@ -101,7 +101,7 @@ Services: 20
 Fixtures per service: 5
 Gate: PASS
 
-Ran 60 tests
+Ran 63 tests
 OK
 
 git diff --check exits 0 with no output.
@@ -120,8 +120,8 @@ Missing or weakly verified requirements:
   Suno, ElevenLabs, or other providers yet.
 - Payments and escrow have mock and Stripe Connect scaffolds, but no live
   payment provider is enabled.
-- Human QA workflow has assignment and decision records, but no staffed reviewer
-  pool, dashboard, or notification integration.
+- Human QA workflow has reviewer-pool assignment scaffolding, but no real
+  staffed reviewer accounts, dashboard, or notification integration.
 - 100-order alpha metrics are simulated, not real buyer orders.
 - Refund and cancellation rates are simulated, not observed.
 - Cost ratios are simulated, not based on real provider invoices.
