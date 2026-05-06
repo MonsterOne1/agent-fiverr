@@ -14,6 +14,8 @@ marketplace.
 - `data/mvp-services.json` - 20 MVP service definitions.
 - `data/pilot-sample-orders.json` - 30 seed sample orders for the first three
   pilot agents: SEO audit, data cleaning, and presentation deck.
+- `agent_fiverr/phase2_samples.py` - generated 200-sample Phase 2 order set:
+  10 sample orders for each of the 20 MVP services.
 - `services/<service>/` - generated workspace spec for each MVP service.
 - `templates/agent-service-template/` - reusable service workspace template.
 - `schemas/` - JSON schemas for service specs and workspace manifests.
@@ -30,6 +32,7 @@ marketplace.
 python3 scripts/generate_service_workspaces.py
 python3 scripts/validate_catalog.py
 python3 scripts/run_pilot_simulation.py
+python3 scripts/run_phase2_simulation.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 

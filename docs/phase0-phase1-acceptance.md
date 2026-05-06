@@ -27,6 +27,7 @@ catalog validation.
 | External side effects require explicit authorization | `POLICY.md` and `WORKSPACE_MANIFEST.json` | Validator checks policy text for services using side-effect providers |
 | Seed first 3 pilot agents with 30 simulated orders | `data/pilot-sample-orders.json` | Validator checks exactly 30 samples, 10 each for SEO audit, data cleaning, and presentation deck |
 | Run first 3 pilot agents through local order lifecycle | `scripts/run_pilot_simulation.py` | Simulation creates 30 temporary workroom orders, advances them to delivery, and adds QA-passing deliverables |
+| Phase 2 sample baseline: 20 MVP agents each have at least 10 sample orders | `agent_fiverr/phase2_samples.py` | `scripts/run_phase2_simulation.py` generates 200 orders, 10 per MVP service, and advances all to delivery |
 
 ## Current Validator
 
@@ -35,6 +36,7 @@ Run:
 ```bash
 python3 scripts/validate_catalog.py
 python3 scripts/run_pilot_simulation.py
+python3 scripts/run_phase2_simulation.py
 ```
 
 Expected output:
@@ -51,6 +53,11 @@ Pilot simulation passed.
 Total orders: 30
 Delivered orders: 30
 Services: data-cleaning-formatting, presentation-pitch-deck, seo-geo-audit
+
+Phase 2 simulation passed.
+Total orders: 200
+Delivered orders: 200
+Services: 20
 ```
 
 ## Remaining Beyond Phase 0/1
@@ -61,6 +68,9 @@ Services: data-cleaning-formatting, presentation-pitch-deck, seo-geo-audit
   have 30 structured seed sample orders, but these are not yet expanded into
   full expected output files.
 - Automatic quality scoring exists as rubric text, not an executable evaluator.
-- Phase 2 requires 10-20 sample orders per MVP service.
+- Phase 2 now has 10 generated lifecycle samples per MVP service, but these are
+  synthetic runtime simulations. They still need real expected outputs, provider
+  calls or mocks, and human/automatic quality scoring beyond schema and QA gate
+  checks.
 - Phase 3 requires real buyer orders, payments/escrow, cancellation/refund
   tracking, and human QA pool.
