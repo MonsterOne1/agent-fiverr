@@ -24,6 +24,7 @@ class QAResult:
     score: int
     missing_fields: tuple[str, ...]
     reasons: tuple[str, ...]
+    missing_rubric_checks: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -155,6 +156,7 @@ class QAEvaluator:
         payload: dict[str, object],
         *,
         risk_override: str | None = None,
+        rubric_evidence: dict[str, object] | None = None,
     ) -> QAResult:
         service = self.catalog.get_service(service_slug)
         missing = tuple(field for field in service.output_fields if not payload.get(field))
@@ -168,6 +170,19 @@ class QAEvaluator:
                 score=2,
                 missing_fields=missing,
                 reasons=tuple(reasons),
+            )
+
+        evidence = rubric_evidence or _payload_rubric_evidence(payload)
+        missing_checks = tuple(check for check in service.qa_checks if not evidence.get(check))
+        if missing_checks:
+            reasons.append("service rubric evidence missing required checks")
+            return QAResult(
+                service_slug=service_slug,
+                status="human_review",
+                score=3,
+                missing_fields=(),
+                reasons=tuple(reasons),
+                missing_rubric_checks=missing_checks,
             )
 
         risk = risk_override or service.risk_level
@@ -213,6 +228,7 @@ def _item_from_record(record: dict[str, Any]) -> HumanReviewItem:
             score=qa["score"],
             missing_fields=tuple(qa.get("missing_fields", [])),
             reasons=tuple(qa.get("reasons", [])),
+            missing_rubric_checks=tuple(qa.get("missing_rubric_checks", [])),
         ),
         status=record["status"],
         created_at=record["created_at"],
@@ -229,3 +245,10 @@ def json_dumps(value: Any) -> str:
 
 def json_loads(value: str) -> Any:
     return json.loads(value)
+
+
+def _payload_rubric_evidence(payload: dict[str, object]) -> dict[str, object]:
+    evidence = payload.get("qa_evidence")
+    if isinstance(evidence, dict):
+        return evidence
+    return {}

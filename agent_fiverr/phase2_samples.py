@@ -62,7 +62,11 @@ def run_phase2_simulation(root: Path = ROOT) -> Phase2SimulationSummary:
                 field: f"Simulated {field} for {sample['sample_id']}"
                 for field in service.output_fields
             }
-            qa_result = evaluator.evaluate(service.slug, payload)
+            rubric_evidence = {
+                check: f"Evidence for {check} in {sample['sample_id']}"
+                for check in service.qa_checks
+            }
+            qa_result = evaluator.evaluate(service.slug, payload, rubric_evidence=rubric_evidence)
             qa_evaluations += 1
             if qa_result.status == "block":
                 raise AssertionError(f"{sample['sample_id']} blocked by QA: {qa_result.reasons}")

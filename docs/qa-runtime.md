@@ -7,6 +7,10 @@ evaluation and human-review loop.
 
 - Checks deliverable payloads against each service's required output fields.
 - Blocks delivery when required fields are missing.
+- Requires evidence for every service-specific QA rubric check before automatic
+  pass.
+- Escalates schema-complete deliverables with missing rubric evidence to human
+  review.
 - Produces a numeric QA score.
 - Escalates high-risk work to human review.
 - Provides a human review queue for order-level escalation.
@@ -21,7 +25,7 @@ evaluation and human-review loop.
 
 ```text
 python3 -m unittest discover -s tests -p 'test_qa_runtime.py'
-Ran 7 tests
+Ran 8 tests
 OK
 
 python3 scripts/run_phase2_simulation.py
@@ -30,7 +34,7 @@ QA evaluations: 200
 
 ## Remaining Work
 
-- Service-specific scoring rubrics beyond required-field validation.
+- Expert semantic scoring beyond rubric-evidence presence.
 - Reviewer staffing, dashboards, and notification integrations.
 - Quality metrics aggregation across real orders.
-- Eval fixtures with expected outputs for all 20 MVP services.
+- Human-approved eval fixture expected outputs for priority services.

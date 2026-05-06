@@ -23,14 +23,24 @@ class QARuntimeTest(unittest.TestCase):
     def test_passes_complete_low_risk_deliverable(self):
         service = self.catalog.get_service("blog-article-writer")
         payload = {field: f"value for {field}" for field in service.output_fields}
-        result = self.evaluator.evaluate(service.slug, payload)
+        evidence = {check: f"evidence for {check}" for check in service.qa_checks}
+        result = self.evaluator.evaluate(service.slug, payload, rubric_evidence=evidence)
         self.assertEqual(result.status, "pass")
         self.assertGreaterEqual(result.score, 4)
+
+    def test_escalates_complete_deliverable_missing_rubric_evidence(self):
+        service = self.catalog.get_service("blog-article-writer")
+        payload = {field: f"value for {field}" for field in service.output_fields}
+        result = self.evaluator.evaluate(service.slug, payload)
+        self.assertEqual(result.status, "human_review")
+        self.assertEqual(result.score, 3)
+        self.assertEqual(result.missing_rubric_checks, service.qa_checks)
 
     def test_escalates_high_risk_service_to_human_review(self):
         service = self.catalog.get_service("market-research-brief")
         payload = {field: f"value for {field}" for field in service.output_fields}
-        result = self.evaluator.evaluate(service.slug, payload, risk_override="high")
+        evidence = {check: f"evidence for {check}" for check in service.qa_checks}
+        result = self.evaluator.evaluate(service.slug, payload, risk_override="high", rubric_evidence=evidence)
         self.assertEqual(result.status, "human_review")
         self.assertIn("high risk", " ".join(result.reasons))
 
