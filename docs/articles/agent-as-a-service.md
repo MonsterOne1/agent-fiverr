@@ -229,6 +229,47 @@ In a very boring, practical way:
 
 I need this done. This agent does it well. I can pay for the outcome.
 
+## We are building toward this
+
+This is also the direction of our second product.
+
+We will launch it soon.
+
+The idea is simple:
+
+You can directly hire an agent for a job.
+
+Not ask it to chat.
+
+Not spend hours prompting it.
+
+Hire it.
+
+Give it the brief.
+
+Let it work.
+
+Get the result.
+
+And unlike a normal service provider, these agents work 24/7.
+
+They do not wait for timezone overlap.
+
+They do not disappear between messages.
+
+They can keep checking status, running tools, improving outputs, and handing
+off to humans when the work needs judgment.
+
+That is the product experience I want:
+
+You do not buy software.
+
+You hire outcomes.
+
+If this is interesting to you, leave a comment.
+
+I will add the first batch of people to the waitlist.
+
 ## What still needs to be real
 
 There is a lot of work between a foundation and a real marketplace.
